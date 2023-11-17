@@ -5,9 +5,9 @@ name: Build & Test
 
 on:
   push:
-    branches: [ master, ts-migration ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   build:
