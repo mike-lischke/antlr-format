@@ -1,0 +1,14 @@
+@@ -0,0 +1,10 @@
+.github
+.vscode
+tests/
+coverage/
+dist/*.map
+dist/parser/
+src/
+
+jest.config.ts
+.eslintignore
+.eslintrc.json
+tsconfig.json
+cspell.json

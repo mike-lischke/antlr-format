@@ -1,0 +1,26 @@
+{
+    "version": "0.2",
+    "ignorePaths": [
+        "node_modules",
+        ".eslintrc.json",
+        "src/parser/ANTLRv4*"
+    ],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "whitespaces"
+    ],
+    "ignoreWords": [
+        "COLONCOLON",
+        "Dlanguage",
+        "LPAREN",
+        "RARROW",
+        "RPAREN",
+        "Xexact",
+        "antlr",
+        "nodir",
+        "outfile",
+        "unmocked"
+    ],
+    "import": []
+}
