@@ -8,8 +8,9 @@ import * as fs from "fs";
 import { CharStreams, CommonTokenStream } from "antlr4ng";
 
 import { positionToIndex, indexToPosition } from "./test-helpers.js";
-import { GrammarFormatter, IFormattingOptions } from "../src/GrammarFormatter.js";
+import { GrammarFormatter } from "../src/GrammarFormatter.js";
 import { ANTLRv4Lexer } from "../src/parser/ANTLRv4Lexer.js";
+import { IFormattingOptions } from "../src/types.js";
 
 interface ITestRange {
     source: {
@@ -57,7 +58,7 @@ describe("Formatting", () => {
     it("With all options (except alignment)", () => {
         // Format a file with all kinds of syntactic elements. Start out with default
         // formatting options and change them in the file to test all variations.
-        const [text] = formatGrammar("tests/formatting/raw.g4", {}, 0, 1e10);
+        const [text] = formatGrammar("tests/formatting/raw.g4", { reflowComments: true }, 0, 1e10);
 
         //fs.writeFileSync("tests/formatting-results/raw2.g4", text, "utf8");
         const expected = fs.readFileSync("tests/formatting-results/raw.g4", { encoding: "utf8" });
@@ -69,7 +70,7 @@ describe("Formatting", () => {
 
         // Load a large file with all possible alignment combinations (50 rules for each permutation),
         // checking so also the overall performance (9600 rules).
-        const [text] = formatGrammar("tests/formatting/alignment.g4", {}, 0, 1e10);
+        const [text] = formatGrammar("tests/formatting/alignment.g4", { reflowComments: true }, 0, 1e10);
 
         //fs.writeFileSync("tests/formatting-results/alignment.g4", text, "utf8");
         const expected = fs.readFileSync("tests/formatting-results/alignment.g4", { encoding: "utf8" });
@@ -77,7 +78,8 @@ describe("Formatting", () => {
     });
 
     it("Ranged formatting", () => {
-        let [text, targetStart, targetStop] = formatGrammar("tests/formatting/raw.g4", {}, -10, -20);
+        let [text, targetStart, targetStop] = formatGrammar("tests/formatting/raw.g4", { reflowComments: true }, -10,
+            -20);
         expect(text).toHaveLength(0);
         expect(targetStart).toEqual(0);
         expect(targetStop).toEqual(4);
@@ -90,7 +92,7 @@ describe("Formatting", () => {
             // Range ends are non-inclusive.
             const startIndex = positionToIndex(source, rangeTest.source.start.column, rangeTest.source.start.row);
             const stopIndex = positionToIndex(source, rangeTest.source.end.column, rangeTest.source.end.row) - 1;
-            [text, targetStart, targetStop] = formatGrammar("tests/formatting/raw.g4", {},
+            [text, targetStart, targetStop] = formatGrammar("tests/formatting/raw.g4", { reflowComments: true },
                 startIndex, stopIndex);
 
             const [startColumn, startRow] = indexToPosition(source, targetStart);
