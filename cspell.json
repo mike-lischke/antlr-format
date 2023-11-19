@@ -18,6 +18,7 @@
         "RPAREN",
         "Xexact",
         "antlr",
+        "apideck",
         "nodir",
         "outfile",
         "unmocked"

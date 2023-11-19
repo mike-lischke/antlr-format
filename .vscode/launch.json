@@ -26,7 +26,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug main index file",
+            "name": "Debug formatter",
             "skipFiles": [
                 "<node_internals>/**"
             ],
@@ -34,9 +34,13 @@
                 "--no-warnings=ExperimentalWarning",
                 "--loader",
                 "ts-node/esm",
-                "src/index.ts",
-                "--source",
-                "/Volumes/Extern/Work/projects/grammars-v4/acme/",
+                "src/antlr-format.ts",
+                "--pattern",
+                "../grammars-v4/**/ada*.g4",
+                "--config",
+                "tests/config.json",
+                "-a",
+                "on",
             ],
             "sourceMaps": true,
             "outputCapture": "std",

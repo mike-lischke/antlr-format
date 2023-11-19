@@ -20,6 +20,7 @@
         "noImplicitThis": true,
         "noFallthroughCasesInSwitch": false,
         "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
     },
     "include": [
         "src/**/*.ts",
