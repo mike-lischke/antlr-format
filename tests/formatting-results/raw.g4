@@ -542,9 +542,8 @@ JSON_UNQUOTED_SEPARATOR_SYMBOL
 	: '->>' {serverVersion >= 50713}?
 ; // MYSQL
 
-// The MySQL server parser uses custom code in its lexer to allow base alphanum chars (and ._$) as
-// variable name. For this it handles user variables in 2 different ways and we have to model this
-// to match that behavior.
+// The MySQL server parser uses custom code in its lexer to allow base alphanum chars (and ._$) as variable name.
+// For this it handles user variables in 2 different ways and we have to model this to match that behavior.
 AT_SIGN_SYMBOL:	'@';
 AT_TEXT_SUFFIX:	'@' SIMPLE_IDENTIFIER;
 
@@ -2068,8 +2067,8 @@ alterView:
 	viewAlgorithm? definerClause? viewSuid? VIEW_SYMBOL viewRef viewTail
 ;
 
-// This is not the full view_tail from sql_yacc.yy as we have either a view name or a view reference, depending on
-// whether we come from createView or alterView. Everything until this difference is duplicated in those rules.
+// This is not the full view_tail from sql_yacc.yy as we have either a view name or a view reference,
+// depending on whether we come from createView or alterView. Everything until this difference is duplicated in those rules.
 viewTail: columnInternalRefList? AS_SYMBOL viewSelect;
 
 viewSelect: queryExpressionOrParens viewCheckOption?;
@@ -2438,8 +2437,9 @@ roleOrLabelKeyword:
 		| CONTRIBUTORS_SYMBOL // Conditionally set in the lexer.
 		| CPU_SYMBOL
 		/*
-		 Although a reserved keyword in SQL:2003 (and :2008), not reserved in MySQL per WL#2111 specification.
-		 */
+          Although a reserved keyword in SQL:2003 (and :2008),
+          not reserved in MySQL per WL#2111 specification.
+        */
 		| CURRENT_SYMBOL
 		| CURSOR_NAME_SYMBOL
 		| DATA_SYMBOL
