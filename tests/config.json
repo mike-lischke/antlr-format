@@ -2,12 +2,12 @@
     "main": {
         "alignTrailingComments": true,
         "columnLimit": 150,
+        "minEmptyLines": 1,
         "maxEmptyLinesToKeep": 1,
         "reflowComments": false,
         "useTab": false,
         "allowShortRulesOnASingleLine": false,
-        "allowShortBlocksOnASingleLine": false,
-        "minEmptyLines": 1,
+        "allowShortBlocksOnASingleLine": true,
         "alignSemicolons": "hanging",
         "alignColons": "hanging"
     },
@@ -17,10 +17,14 @@
         "maxEmptyLinesToKeep": 1,
         "reflowComments": false,
         "useTab": false,
-        "allowShortRulesOnASingleLine": false,
-        "allowShortBlocksOnASingleLine": false,
+        "allowShortRulesOnASingleLine": true,
+        "allowShortBlocksOnASingleLine": true,
         "minEmptyLines": 0,
-        "alignSemicolons": "none",
-        "alignColons": "trailing"
+        "alignSemicolons": "ownLine",
+        "alignColons": "trailing",
+        "singleLineOverrulesHangingColon": true,
+        "alignLexerCommands": true,
+        "alignLabels": true,
+        "alignTrailers": true
     }
 }

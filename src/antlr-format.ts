@@ -40,7 +40,13 @@ interface IAppParameters extends OptionValues {
 }
 
 const matchBoolean = (value: string): boolean => {
-    return value === "true" || value === "1" || value === "on" || value === "yes";
+    if (value == null) {
+        return false;
+    }
+
+    const lower = value.trim().toLowerCase();
+
+    return lower === "true" || lower === "1" || lower === "on" || lower === "yes";
 };
 
 const start = performance.now();
@@ -48,7 +54,7 @@ const start = performance.now();
 program
     .requiredOption("-p, --pattern <path|pattern>", "The path to a grammar file or a glob pattern for multiple files" +
         ", to be formatted.")
-    .option<boolean>("-a, --add-options", "Insert the used ANTLR grammar formatting " +
+    .option<boolean>("-a, --add-options [boolean]", "Insert the used ANTLR grammar formatting " +
         "options to the grammar file, if it contains no options.", matchBoolean, true)
     .option("-c, --config <path>", "Path to a JSON file containing the formatting options to use.")
     .option("-s, --silent", "Suppress all output except errors.")

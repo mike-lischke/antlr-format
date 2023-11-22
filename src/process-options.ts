@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-// @ts-expect-error, as the import assertion conflicts between Node and TS.
+// @ts-ignore, because when setting node module resolution to Node16, tsc raises an error for the import assertion.
 import configSchema from "./config-schema.json" assert { type: "json" };
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -21,7 +21,7 @@ export interface IConfigurationDetails {
     lexerText: string;
 };
 
-const convertToComment = (options: IFormattingOptions): string => {
+export const convertToComment = (options: IFormattingOptions): string => {
     const entries: string[] = [];
     for (const [key, value] of Object.entries(options)) {
         entries.push(`${key} ${value}`);
@@ -32,6 +32,10 @@ const convertToComment = (options: IFormattingOptions): string => {
     while (true) {
         const next = entries.shift();
         if (!next) {
+            if (line.length > 0) {
+                lines.push("// $antlr-format " + line);
+            }
+
             break;
         }
 
@@ -43,7 +47,7 @@ const convertToComment = (options: IFormattingOptions): string => {
         line += (line.length > 0 ? ", " : "") + next;
     }
 
-    return lines.join("\n");
+    return "\n" + lines.join("\n") + "\n\n";
 };
 
 /**

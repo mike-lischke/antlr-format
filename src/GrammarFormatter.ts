@@ -7,6 +7,7 @@ import { Interval, Token } from "antlr4ng";
 
 import { ANTLRv4Lexer } from "./parser/ANTLRv4Lexer.js";
 import { IFormattingOptions } from "./types.js";
+import { convertToComment } from "./process-options.js";
 
 const formatIntroducer = "$antlr-format";
 
@@ -50,8 +51,13 @@ enum PredefinedInsertMarker {
     Space = -3,
     Tab = -4,
 
-    // Markers for a group of elements.
+    /** Marks the position where to insert the formatting options as comments. */
+    FormattingOptions = -5,
+
+    /** Markers for a group of whitespace elements. */
     Whitespace = -100,
+
+    /** Markers for a group of comment elements. */
     Comment = -101,
 
     // Action markers.
@@ -112,6 +118,9 @@ export class GrammarFormatter {
     // A list of strings containing whitespaces to insert for alignment.
     private whitespaceList: string[];
 
+    /** Set to true if at least one formatting comment was found (to avoid adding additional formatting comments). */
+    private containsFormattingOptions: boolean;
+
     public constructor(private tokens: Token[], private addOptionsAsComment = false) { }
 
     /**
@@ -149,6 +158,7 @@ export class GrammarFormatter {
         this.currentColumn = 0;
         this.currentLine = 1;
         this.formattingDisabled = false;
+        this.containsFormattingOptions = false;
 
         let coalesceWhitespaces = false; // Set in situations where we don't want multiple consecutive whitespaces.
         let inBraces = false; // Set between {} (e.g. in options).
@@ -721,14 +731,31 @@ export class GrammarFormatter {
                     break;
                 }
 
-                case ANTLRv4Lexer.COLONCOLON:
+                case ANTLRv4Lexer.COLONCOLON: {
                     this.removeTrailingWhitespaces();
                     this.add(i);
                     this.add(PredefinedInsertMarker.WhitespaceEraser);
+
                     break;
+                }
+
+                case ANTLRv4Lexer.LEXER:
+                case ANTLRv4Lexer.PARSER:
+                case ANTLRv4Lexer.GRAMMAR: {
+                    if (this.addOptionsAsComment && !this.containsFormattingOptions) {
+                        this.add(PredefinedInsertMarker.FormattingOptions);
+                        this.addOptionsAsComment = false;
+                    }
+
+                    if (token.type !== ANTLRv4Lexer.GRAMMAR) {
+                        this.add(i);
+                        break;
+                    }
+
+                    // [falls-through]
+                }
 
                 case ANTLRv4Lexer.IMPORT:
-                case ANTLRv4Lexer.GRAMMAR:
                 case ANTLRv4Lexer.MODE: {
                     if (!inNamedAction && !inRule) {
                         // We increase the current indentation here only to have an easier time
@@ -738,6 +765,7 @@ export class GrammarFormatter {
                         coalesceWhitespaces = true;
                         inMeta = true;
                     }
+
                     this.add(i);
 
                     break;
@@ -1093,6 +1121,13 @@ export class GrammarFormatter {
                         result += "<<Unexpected input or wrong formatter command>>";
                         hadErrorOnLine = true;
                     }
+
+                    break;
+                }
+
+                case PredefinedInsertMarker.FormattingOptions: {
+                    // Only the given options, not the full set with all defaults.
+                    result += convertToComment(options);
 
                     break;
                 }
@@ -1753,6 +1788,7 @@ export class GrammarFormatter {
         return this.tokens[i].type === ANTLRv4Lexer.LINE_COMMENT
             || this.tokens[i].type === ANTLRv4Lexer.RARROW
             || this.tokens[i].type === ANTLRv4Lexer.LPAREN;
+        ;
     }
 
     /**
@@ -1772,12 +1808,36 @@ export class GrammarFormatter {
         };
 
         let text = this.tokens[index].text!;
-        text = text.substring(2, text.length).trim();
+
+        // Remove comment introducer, depending on the comment type (single line, block, doc).
+        if (text.startsWith("//")) {
+            text = text.substring(2, text.length).trim();
+        } else if (text.startsWith("/*")) {
+            // Extract the comment body.
+            const groups = /\/\*(\s*\*?)*(.*)\*\//s.exec(text);
+            if (groups) {
+                text = groups[2].trim();
+            }
+        }
+
         if (text.startsWith(formatIntroducer)) {
-            const entries = text.substring(formatIntroducer.length + 1).split(",");
+            // Extract the individual options from the comment. We allow multiple options in a single comment.
+            // Watch out for single line vs. block comments.
+            const lines = text.substring(formatIntroducer.length + 1).split("\n");
+
+            // Remove leading and trailing whitespace from each line. Exclude also leading stars.
+            const leadingStars = /^\s*\*+\s*/;
+            const trailingWhitespace = /\s*$/;
+            for (let i = 0; i < lines.length; ++i) {
+                lines[i] = lines[i].replace(leadingStars, "").replace(trailingWhitespace, "");
+            }
+
+            const entries = lines.join(",").split(",");
             for (const entry of entries) {
                 const groups = /(\w+)(?:(?:\s*:)?\s*)?(\w+|[0-9]+)?/i.exec(entry.trim());
                 if (groups) {
+                    this.containsFormattingOptions = true;
+
                     switch (groups[1]) {
                         case "reset": {
                             this.setDefaultOptions();
@@ -1977,6 +2037,11 @@ export class GrammarFormatter {
                         if (group[0] < this.outputPipeline.length) {
                             if (this.entryIs(group[0] - 1, PredefinedInsertMarker.Whitespace)
                                 || this.entryIs(group[0] - 1, ANTLRv4Lexer.LPAREN)) {
+                                this.outputPipeline[group[0]] = PredefinedInsertMarker.WhitespaceEraser;
+                            } else if (this.entryIs(group[0] + 2, ANTLRv4Lexer.COLON)) {
+                                // Colons might be aligned (depending on the options), but if there's only
+                                // a single colon we replace the alignment marker with the eraser marker to have
+                                // no effect and attach so the colon directly to its preceding token (the rule name).
                                 this.outputPipeline[group[0]] = PredefinedInsertMarker.WhitespaceEraser;
                             } else {
                                 this.outputPipeline[group[0]] = PredefinedInsertMarker.Space;
