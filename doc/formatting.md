@@ -29,7 +29,7 @@ In order to set all settings to their default values use: `// $antlr-format rese
 
 ## Configuration
 
-In addition to inline formatting options use a config file (for the terminal application) or an object with key-value pairs, when creating the `GrammarFormatter` class. A configuration file contains one mandatory and one optional set of options. The one in the `main` is used for all types of grammars. Additionally, you can specify a dedicated lexer grammar option set, for cases where you want to have different rules for lexer grammars.
+In addition to inline formatting options use a config file (for the terminal application) or an object with key-value pairs, when creating the `GrammarFormatter` class. A configuration file contains one mandatory and one optional set of options. The one in the `main` key is used for all types of grammars. Additionally, you can specify a dedicated lexer grammar option set, for cases where you want to have different rules for lexer grammars.
 
 Here's the [config file](tests/config.json) used for tests in this repository.
 
@@ -69,7 +69,7 @@ Here's the [config file](tests/config.json) used for tests in this repository.
 For running the formatter in code use:
 
 ```typescript
-    Import { IFormattingOptions, GrammarFormatter } from "antlr-format";
+    import { IFormattingOptions, GrammarFormatter } from "antlr-format";
     
     let options: IFormattingOptions = {
         "alignLexerCommands": true,
