@@ -1,23 +1,23 @@
 # Grammar Formatting
 
-The `antlr-format` tool is able to format ANTLR4 grammar source code, considering a [large set of options](extension-settings.md#grammar-formatting). The [clang-format](http://clang.llvm.org/docs/ClangFormatStyleOptions.html) tool acted as a model for option naming and some settings that have been taken over. Besides the usual things like block formatting, empty lines and comment formatting, there's a powerful alignment implementation. It allows to align certain grammar elements (trailing comments, lexer commands, alt labels, predicates and others) between consecutive lines that contain this grammar element (when grouped alignment is on) or for the entire file. There can even be multiple alignments on a line:
+The `antlr-format` tool is able to format ANTLR4 grammar source code, considering a [large set of options](#available-formatting-options). The [clang-format](http://clang.llvm.org/docs/ClangFormatStyleOptions.html) tool acted as a model for option naming and some settings that have been taken over. Besides the usual things like block formatting, empty lines and comment formatting, there's a powerful alignment implementation. It allows to align certain grammar elements (trailing comments, lexer commands, alt labels, predicates and others) between consecutive lines that contain this grammar element (when grouped alignment is on) or for the entire file. There can even be multiple alignments on a line:
 
 >![screen shot 1](https://raw.githubusercontent.com/mike-lischke/antlr-format/master/images/multiple-alignments.png)
 
-The formatting feature can be controlled dynamically by special comments in the grammar source, which allow to switch a setting on the fly. You can even completely switch off formatting for a file or a part of it. Below are some examples for such a formatting comment. You can use boolean values (on, off, true, false), numbers and identifiers (for word options). They are not case-sensitive.
+The formatting feature can be controlled dynamically by special comments in the grammar source, which allow to switch a setting on the fly. You can even completely switch off formatting for a file or a part of it. Below are some examples for such formatting comments. You can use boolean values (on, off, true, false), numbers and identifiers (for word options). They are not case-sensitive.
 
-```
+```antlr
 // $antlr-format on
 // $antlr-format false
 // $antlr-format columnLimit 150
 // $antlr-format allowShortBlocksOnASingleLine true, indentWidth 8
 ```
 
-Don't put anything else in a comment with formatting settings. All comment types are allowed, but single line comments are read line by line and hence require each line to start with the `$antlr-format` introducer.
+Don't put anything else in a comment with formatting settings or parsing them will fail. All comment types are allowed, but single line comments are read line by line and hence require each line to start with the `$antlr-format` introducer.
 
 Block and doc comments can be used like this:
 
-```
+```antlr
 /**
  * $antlr-format
  * columnLimit 150, indentWidth 8
@@ -27,6 +27,65 @@ Block and doc comments can be used like this:
 
 In order to set all settings to their default values use: `// $antlr-format reset`. This can also be used in conjunction with other options.
 
+## Configuration
+
+In addition to inline formatting options use a config file (for the terminal application) or an object with key-value pairs, when creating the `GrammarFormatter` class. A configuration file contains one mandatory and one optional set of options. The one in the `main` is used for all types of grammars. Additionally, you can specify a dedicated lexer grammar option set, for cases where you want to have different rules for lexer grammars.
+
+Here's the [config file](tests/config.json) used for tests in this repository.
+
+```json
+{
+    "main": {
+        "alignTrailingComments": true,
+        "columnLimit": 150,
+        "minEmptyLines": 1,
+        "maxEmptyLinesToKeep": 1,
+        "reflowComments": false,
+        "useTab": false,
+        "allowShortRulesOnASingleLine": false,
+        "allowShortBlocksOnASingleLine": true,
+        "alignSemicolons": "hanging",
+        "alignColons": "hanging"
+    },
+    "lexer": {
+        "alignTrailingComments": true,
+        "columnLimit": 150,
+        "maxEmptyLinesToKeep": 1,
+        "reflowComments": false,
+        "useTab": false,
+        "allowShortRulesOnASingleLine": true,
+        "allowShortBlocksOnASingleLine": true,
+        "minEmptyLines": 0,
+        "alignSemicolons": "ownLine",
+        "alignColons": "trailing",
+        "singleLineOverrulesHangingColon": true,
+        "alignLexerCommands": true,
+        "alignLabels": true,
+        "alignTrailers": true
+    }
+}
+```
+
+For running the formatter in code use:
+
+```typescript
+    Import { IFormattingOptions, GrammarFormatter } from "antlr-format";
+    
+    let options: IFormattingOptions = {
+        "alignLexerCommands": true,
+        "alignLabels": true,
+        "alignTrailers": true
+    }
+    
+    const formatter = new GrammarFormatter(tokens);
+
+    const result = formatter.formatGrammar(options, start, stop);
+
+```
+
+The formatter not only formats entire files, but can also just apply your rules to a part of a grammar, taking care to start and stop on valid positions. For this give the `formatGrammar` method start and end positions. The return result not only includes the formatted text but also start and stop indices you can use to update the original text.
+
+When running the formatter programmatically, you have to generate a list of tokens, by flexing the input using the ANTLRv4 lexer. See the `formatGrammar` function in the [unit tests](tests/formatting.spec.ts) for an example of how to do that.
 
 ## Available Formatting Options
 
