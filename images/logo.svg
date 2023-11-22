@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="250" height="250" viewBox="0, 0, 250, 250">
+  <defs>
+    <clipPath id="Clip_1">
+      <path d="M64.499,113.5 L117.834,113.5 L117.834,166.833 L64.499,166.833 z M107.834,123.5 L74.499,123.5 L74.499,156.833 L107.834,156.833 L107.834,123.5 z"/>
+    </clipPath>
+    <filter id="Shadow_2">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3.5"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_3">
+      <path d="M131.167,80.833 L184.499,80.833 L184.499,134.167 L131.167,134.167 z M174.499,90.833 L141.167,90.833 L141.167,124.168 L174.499,124.168 L174.499,90.833 z"/>
+    </clipPath>
+    <filter id="Shadow_4">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3.5"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <radialGradient id="Gradient_1" gradientUnits="userSpaceOnUse" cx="257.333" cy="-53.508" r="16.666" gradientTransform="matrix(1, 0, 0, -1, 0, 0)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#AFAFAF"/>
+    </radialGradient>
+    <clipPath id="Clip_5">
+      <path d="M273.999,70.174 L273.999,36.842 L240.666,36.842 L240.666,70.174 L273.999,70.174 z"/>
+    </clipPath>
+    <radialGradient id="Gradient_2" gradientUnits="userSpaceOnUse" cx="90.666" cy="-220.675" r="17.167" gradientTransform="matrix(1, 0, 0, -1, 0, 0)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#AFAFAF"/>
+    </radialGradient>
+    <radialGradient id="Gradient_3" gradientUnits="userSpaceOnUse" cx="-9.333" cy="-86.842" r="16.666" gradientTransform="matrix(1, 0, 0, -1, 0, 0)">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#AFAFAF"/>
+    </radialGradient>
+    <clipPath id="Clip_6">
+      <path d="M7.333,103.509 L7.333,70.174 L-26,70.174 L-26,103.509 L7.333,103.509 z"/>
+    </clipPath>
+  </defs>
+  <g id="Layer_1">
+    <g>
+      <path d="M107.834,57.5 L74.5,57.5 L74.5,25.167 L107.834,25.167 z" fill="#FEFFFF"/>
+      <path d="M74.5,25.167 L107.833,25.167 L107.833,57.5 L74.5,57.5 z" fill="#42606F"/>
+      <path d="M141.167,25.167 L174.499,25.167 L174.499,57.5 L141.167,57.5 z" fill="#E8615B"/>
+      <path d="M41.166,57.499 L74.499,57.499 L74.499,90.832 L41.166,90.832 z" fill="#52BDAD"/>
+      <path d="M107.834,57.499 L141.167,57.499 L141.167,90.832 L107.834,90.832 z" fill="#52BDAD"/>
+      <path d="M141.167,57.499 L174.499,57.499 L174.499,90.832 L141.167,90.832 z" fill="#F3D15E"/>
+      <path d="M174.499,90.832 L208.834,90.832 L208.834,57.499 L174.499,57.499 z" fill="#E8615B"/>
+      <path d="M41.166,90.834 L74.499,90.834 L74.499,124.168 L41.166,124.168 z" fill="#42606F"/>
+      <path d="M74.5,90.834 L107.834,90.834 L107.834,124.168 L74.5,124.168 z" fill="#52BDAD"/>
+      <path d="M107.834,90.834 L141.167,90.834 L141.167,124.168 L107.834,124.168 z" fill="#F3D15E"/>
+      <path d="M174.499,124.169 L208.834,124.169 L208.834,90.834 L174.499,90.834 z" fill="#F3D15E"/>
+      <path d="M107.834,123.501 L141.167,123.501 L141.167,156.833 L107.834,156.833 z" fill="#E8615B"/>
+      <path d="M141.167,123.501 L174.499,123.501 L174.499,156.833 L141.167,156.833 z" fill="#F3D15E"/>
+      <path d="M174.499,156.833 L208.834,156.833 L208.834,123.501 L174.499,123.501 z" fill="#E8615B"/>
+      <path d="M41.166,156.168 L74.499,156.168 L74.499,190.501 L41.166,190.501 z" fill="#42606F"/>
+      <path d="M107.834,156.168 L141.167,156.168 L141.167,190.501 L107.834,190.501 z" fill="#52BDAD"/>
+      <path d="M141.167,156.168 L174.499,156.168 L174.499,190.501 L141.167,190.501 z" fill="#F3D15E"/>
+      <path d="M174.499,224.833 L208.834,224.833 L208.834,190.501 L174.499,190.501 z" fill="#F3D15E"/>
+      <g>
+        <path d="M107.834,123.5 L107.834,156.833 L74.499,156.833 L74.499,123.5 L107.834,123.5 z" clip-path="url(#Clip_1)" filter="url(#Shadow_2)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M74.5,123.501 L107.834,123.501 L107.834,156.833 L74.5,156.833 z" fill="#E98E4F"/>
+      </g>
+      <g>
+        <path d="M174.499,90.833 L174.499,124.168 L141.167,124.168 L141.167,90.833 L174.499,90.833 z" clip-path="url(#Clip_3)" filter="url(#Shadow_4)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M141.167,90.834 L174.499,90.834 L174.499,124.168 L141.167,124.168 z" fill="#E8615B"/>
+      </g>
+    </g>
+    <g display="none">
+      <g clip-path="url(#Clip_5)" opacity="0.57">
+        <path d="M240.666,70.174 L248.081,70.174 L266.584,70.174 L273.999,70.174 L273.999,64.758 L273.999,49.756 L273.999,36.842 L266.584,36.842 L248.081,36.842 L240.666,36.842 L240.666,49.756 L240.666,64.758 z" fill="url(#Gradient_1)"/>
+      </g>
+      <g opacity="0.7">
+        <path d="M73.999,237.842 L81.414,237.842 L99.917,237.842 L107.332,237.842 L107.332,232.264 L107.332,216.812 L107.332,203.508 L99.917,203.508 L81.414,203.508 L73.999,203.508 L73.999,216.812 L73.999,232.264 z" fill="url(#Gradient_2)"/>
+      </g>
+      <g clip-path="url(#Clip_6)" opacity="0.7">
+        <path d="M7.333,103.509 L7.333,70.174 L-26,70.174 L-26,103.509 L7.333,103.509 z" fill="url(#Gradient_3)"/>
+      </g>
+    </g>
+  </g>
+</svg>

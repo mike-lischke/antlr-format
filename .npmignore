@@ -6,6 +6,7 @@ coverage/
 dist/*.map
 dist/parser/
 src/
+grammars/
 
 jest.config.ts
 .eslintignore

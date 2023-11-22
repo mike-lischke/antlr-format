@@ -13,10 +13,8 @@ import { CharStreams, CommonTokenStream } from "antlr4ng";
 import { glob } from "glob";
 import { OptionValues, program } from "commander";
 
-import { IFormattingOptions } from "./types.js";
-import { GrammarFormatter } from "./GrammarFormatter.js";
+import { GrammarFormatter, IConfigurationDetails, IFormattingOptions, processFormattingOptions } from "./index.js";
 import { ANTLRv4Lexer } from "./parser/ANTLRv4Lexer.js";
-import { IConfigurationDetails, processFormattingOptions } from "./process-options.js";
 
 interface IAppParameters extends OptionValues {
     /** The path to a single source file or a glob pattern for multiple files. */

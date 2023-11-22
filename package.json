@@ -3,23 +3,23 @@
     "author": "Mike Lischke",
     "license": "MIT",
     "version": "1.0.0",
-    "description": "A formatter for ANTLR grammars",
+    "description": "A formatter for ANTLR4 grammars",
     "bin": {
-        "antlr-format": "./dist/antlr-format.mjs"
+        "antlr-format": "./dist/antlr-format.cjs"
     },
     "type": "module",
-    "files": [
-        "License.txt",
-        "antlr-format.mjs"
-    ],
+    "main": "dist/index.js",
     "scripts": {
         "generate": "antlr4ng -Dlanguage=TypeScript -no-visitor -no-listener -Xexact-output-dir grammars/LexBasic.g4 grammars/ANTLRv4Lexer.g4 -o src/parser",
         "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --no-coverage",
         "lint": "eslint --ext .ts .",
-        "build": "tsc && esbuild ./src/antlr-format.js --main-fields=module,main --bundle --outfile=dist/antlr-format.mjs --platform=node --format=esm --sourcemap",
-        "build-minified": "npm run build -- --minify",
+        "build-tool": "esbuild ./src/antlr-format.ts --main-fields=module,main --bundle --outfile=dist/antlr-format.cjs --platform=node --format=cjs --sourcemap",
+        "build-package": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outfile=dist/index.js --platform=node --format=esm --sourcemap",
+        "build": "npm run build-package && npm run build-tool",
+        "build-minified": "npm run build-package -- --minify && npm run build-tool -- --minify",
         "build-watch": "npm run build -- --sourcemap --watch",
         "format-test": "node --no-warnings --experimental-vm-modules --loader ts-node/esm ./src/antlr-format.ts --pattern ../grammars-v4/**/ada*.g4 --config tests/config.json -a",
+        "bin-test": "antlr-format --pattern ../grammars-v4/**/ada*.g4 --config tests/config.json -a",
         "generate-configuration-schema": "./node_modules/.bin/ts-json-schema-generator --path 'src/types.ts' --type 'IConfiguration' > src/config-schema.json"
     },
     "repository": {
