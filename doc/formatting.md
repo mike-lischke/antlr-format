@@ -70,13 +70,13 @@ For running the formatter in code use:
 
 ```typescript
     import { IFormattingOptions, GrammarFormatter } from "antlr-format";
-    
+
     let options: IFormattingOptions = {
         "alignLexerCommands": true,
         "alignLabels": true,
         "alignTrailers": true
     }
-    
+
     const formatter = new GrammarFormatter(tokens);
 
     const result = formatter.formatGrammar(options, start, stop);
@@ -85,7 +85,7 @@ For running the formatter in code use:
 
 The formatter not only formats entire files, but can also just apply your rules to a part of a grammar, taking care to start and stop on valid positions. For this give the `formatGrammar` method start and end positions. The return result not only includes the formatted text but also start and stop indices you can use to update the original text.
 
-When running the formatter programmatically, you have to generate a list of tokens, by flexing the input using the ANTLRv4 lexer. See the `formatGrammar` function in the [unit tests](tests/formatting.spec.ts) for an example of how to do that.
+When running the formatter programmatically, you have to generate a list of tokens, by lexing the input using the ANTLRv4 lexer. See the `formatGrammar` function in the [unit tests](../tests/formatting.spec.ts) for an example of how to do that.
 
 ## Available Formatting Options
 
@@ -98,7 +98,7 @@ When running the formatter programmatically, you have to generate a list of toke
 * **indentWidth**: number (default: 4), character count for indentation (if useTab is false)
 * **keepEmptyLinesAtTheStartOfBlocks**: boolean (default: false), if true, empty lines at the start of blocks are kept
 * **maxEmptyLinesToKeep**: number (default: 1), the maximum number of consecutive empty lines to keep
-* **reflowComments**: boolean (default: true), reformat comments to fit the column limit
+* **reflowComments**: boolean (default: false), reformat comments to fit the column limit
 * **spaceBeforeAssignmentOperators**: boolean (default: true), enables spaces around operators
 * **tabWidth**: number (default: 4), multiples of this value determine tab stops in a document
 * **useTab**: boolean (default: true), use tabs for indentation (otherwise spaces)
