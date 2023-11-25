@@ -19,6 +19,10 @@ Read the [formatter documentation](doc/formatting.md) for further details and a 
 
 ## Release Notes
 
+### 2.0.1
+
+Added missing type definition entry in package.json.
+
 ### 2.0.0
 
 BREAKING CHANGE:
