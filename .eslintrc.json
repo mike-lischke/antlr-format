@@ -15,7 +15,9 @@
         "src/**/*.js",
         "spec/**/*.*js",
         "dist/**/*",
-        "jest.config.ts"
+        "jest.config.ts",
+        "ANTLRv4*.ts",
+        "LexBasic*.ts"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {

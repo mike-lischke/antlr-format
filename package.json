@@ -2,8 +2,8 @@
     "name": "antlr-format",
     "author": "Mike Lischke",
     "license": "MIT",
-    "version": "1.0.0",
-    "description": "A formatter for ANTLR4 grammars",
+    "version": "2.0.0",
+    "description": "A formatter lib for ANTLR4 grammars",
     "type": "module",
     "main": "dist/index.js",
     "scripts": {
@@ -12,8 +12,7 @@
         "lint": "eslint --ext .ts .",
         "build": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outfile=dist/index.js --platform=node --format=esm --sourcemap",
         "build-minified": "npm run build -- --minify",
-        "build-watch": "npm run build -- --sourcemap --watch",
-        "format-test": "node --no-warnings --experimental-vm-modules --loader ts-node/esm ./cli/antlr-format.ts --pattern ../grammars-v4/**/ada*.g4 --config tests/config.json -a"
+        "build-watch": "npm run build -- --sourcemap --watch"
     },
     "repository": {
         "type": "git",

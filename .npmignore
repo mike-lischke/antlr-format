@@ -3,8 +3,11 @@
 .vscode
 tests/
 coverage/
+cli/
 dist/*.map
 dist/parser/
+dist/cli
+dist/src/parser
 src/
 grammars/
 doc/

@@ -69,23 +69,24 @@ Here's the [config file](tests/config.json) used for tests in this repository.
 For running the formatter in code use:
 
 ```typescript
+    import * as fs from "fs";
     import { IFormattingOptions, GrammarFormatter } from "antlr-format";
 
     let options: IFormattingOptions = {
         "alignLexerCommands": true,
         "alignLabels": true,
-        "alignTrailers": true
+        "alignTrailers": true,
+        ...
     }
 
-    const formatter = new GrammarFormatter(tokens);
+    const grammar = fs.readFileSync("<path to grammar file>");
+    const formatter = new GrammarFormatter(grammar);
 
-    const result = formatter.formatGrammar(options, start, stop);
+    const result = formatter.formatGrammar(options);
 
 ```
 
-The formatter not only formats entire files, but can also just apply your rules to a part of a grammar, taking care to start and stop on valid positions. For this give the `formatGrammar` method start and end positions. The return result not only includes the formatted text but also start and stop indices you can use to update the original text.
-
-When running the formatter programmatically, you have to generate a list of tokens, by lexing the input using the ANTLRv4 lexer. See the `formatGrammar` function in the [unit tests](../tests/formatting.spec.ts) for an example of how to do that.
+The formatter not only formats entire files, but can also apply your rules only to a part of a grammar, taking care to start and stop on valid positions. For this give the `formatGrammar` method start and end positions. The return result not only includes the formatted text but also start and stop indices you can use to update the original text.
 
 ## Available Formatting Options
 

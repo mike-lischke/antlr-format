@@ -162,8 +162,8 @@ export class GrammarFormatter {
 
     private tokens: Token[];
 
-    public constructor(grammar: string, addOptionsAsComment: boolean);
-    public constructor(tokens: Token[], addOptionsAsComment: boolean);
+    public constructor(grammar: string, addOptionsAsComment?: boolean);
+    public constructor(tokens: Token[], addOptionsAsComment?: boolean);
     public constructor(grammarOrTokens: string | Token[], private addOptionsAsComment = false) {
         if (typeof grammarOrTokens === "string") {
             const lexer = new ANTLRv4Lexer(CharStreams.fromString(grammarOrTokens));
@@ -185,7 +185,7 @@ export class GrammarFormatter {
      * @returns A tuple containing the formatted text as well as new start/stop indices that should be used
      *          to replace the old text range.
      */
-    public formatGrammar(options: IFormattingOptions, start: number, stop: number): [string, number, number] {
+    public formatGrammar(options: IFormattingOptions, start?: number, stop?: number): [string, number, number] {
         if (this.tokens.length === 0 || options.disabled) {
             return ["", -1, -1];
         }
@@ -224,10 +224,10 @@ export class GrammarFormatter {
         let inSingleLineRule = false; // Set when an entire rule is placed on a single line.
         let minLineInsertionPending = false; // Set when the min line setting must be enforced after next line break.
 
-        // Start by determining the actual formatting range. This is specified for the unformatted text,
+        // Start by determining the actual formatting range. This can be specified for the unformatted text,
         // which allows the caller to use it directly to replace the old text.
-        let startIndex = this.tokenFromIndex(start, true);
-        const endIndex = this.tokenFromIndex(stop, false);
+        let startIndex = this.tokenFromIndex(start ?? 0, true);
+        const endIndex = this.tokenFromIndex(stop ?? 1e100, false);
 
         // Adjust the start index if we are within a single line comment which is part of a comment block
         // and we are reflowing comment text. Include all single line comment entries of that block.
