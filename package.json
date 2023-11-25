@@ -11,9 +11,10 @@
         "generate": "antlr4ng -Dlanguage=TypeScript -no-visitor -no-listener -Xexact-output-dir grammars/LexBasic.g4 grammars/ANTLRv4Lexer.g4 -o src/parser",
         "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --no-coverage",
         "lint": "eslint --ext .ts .",
-        "build": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outfile=dist/index.js --platform=node --format=esm --sourcemap",
+        "build": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outfile=dist/index.js --format=esm",
         "build-minified": "npm run build -- --minify",
-        "build-watch": "npm run build -- --sourcemap --watch"
+        "build-watch": "npm run build -- --sourcemap --watch",
+        "format-grammar-repo": "antlr-format --pattern ../grammars-v4/**/*.g4 --config tests/config.json -a"
     },
     "repository": {
         "type": "git",

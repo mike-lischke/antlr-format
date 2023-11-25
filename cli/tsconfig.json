@@ -23,7 +23,8 @@
         "resolveJsonModule": true,
     },
     "include": [
-        "src/**/*.ts",
+        "antlr-format.ts",
+        "process-options.ts",
     ],
     "exclude": [
         "dist",

@@ -12,9 +12,8 @@ import betterAjvErrors from "@readme/better-ajv-errors";
 
 import { existsSync, readFileSync } from "fs";
 
-import { IFormattingOptions, convertToComment } from "antlr-format";
-
-import { IConfiguration } from "../src/types.js";
+import { convertToComment } from "../src/GrammarFormatter.js";
+import { IConfiguration, IFormattingOptions } from "../src/types.js";
 
 export interface IConfigurationDetails {
     main: IFormattingOptions;

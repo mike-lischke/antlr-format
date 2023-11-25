@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { CharStreams, CommonTokenStream, Interval, Token } from "antlr4ng";
+import { CharStreams, CommonTokenStream, Token } from "antlr4ng";
 
 import { ANTLRv4Lexer } from "./parser/ANTLRv4Lexer.js";
 import { IFormattingOptions } from "./types.js";
@@ -1196,9 +1196,8 @@ export class GrammarFormatter {
                             const rangeIndex = -(entry - PredefinedInsertMarker.Range);
                             const tokenStart = this.ranges[rangeIndex][0];
                             const tokenEnd = this.ranges[rangeIndex][1];
-                            const interval = Interval.of(this.tokens[tokenStart].start,
+                            result += this.tokens[0].inputStream!.getText(this.tokens[tokenStart].start,
                                 this.tokens[tokenEnd].stop);
-                            result += this.tokens[0].inputStream!.getText(interval);
                         }
                     } else {
                         if (this.tokens[entry].type === ANTLRv4Lexer.LINE_COMMENT) {
@@ -1616,8 +1615,7 @@ export class GrammarFormatter {
      * @param stop The end index for the raw range.
      */
     private addRaw(start: InsertMarker, stop: InsertMarker): void {
-        const interval = Interval.of(this.tokens[start].start, this.tokens[stop].stop);
-        const text = this.tokens[0].inputStream!.getText(interval);
+        const text = this.tokens[0].inputStream!.getText(this.tokens[start].start, this.tokens[stop].stop);
 
         if (text.indexOf("\n") >= 0) {
             const parts = text.split("\n");
@@ -2189,9 +2187,8 @@ export class GrammarFormatter {
                             const rangeIndex = -(entry - PredefinedInsertMarker.Range);
                             const startIndex = this.ranges[rangeIndex][0];
                             const endIndex = this.ranges[rangeIndex][1];
-                            const interval = Interval.of(this.tokens[startIndex].start,
+                            text += this.tokens[0].inputStream!.getText(this.tokens[startIndex].start,
                                 this.tokens[endIndex].stop);
-                            text += this.tokens[0].inputStream!.getText(interval);
                         } else if (this.isWhitespaceBlock(entry)) {
                             const whitespaceIndex = -(entry - PredefinedInsertMarker.WhitespaceBlock);
                             text += this.whitespaceList[whitespaceIndex];
