@@ -12,42 +12,15 @@ import betterAjvErrors from "@readme/better-ajv-errors";
 
 import { existsSync, readFileSync } from "fs";
 
-import { IConfiguration, IFormattingOptions } from "./types.js";
+import { IFormattingOptions, convertToComment } from "antlr-format";
+
+import { IConfiguration } from "../src/types.js";
 
 export interface IConfigurationDetails {
     main: IFormattingOptions;
     mainText: string;
     lexer: IFormattingOptions;
     lexerText: string;
-};
-
-export const convertToComment = (options: IFormattingOptions): string => {
-    const entries: string[] = [];
-    for (const [key, value] of Object.entries(options)) {
-        entries.push(`${key} ${value}`);
-    }
-
-    let line = "";
-    const lines: string[] = [];
-    while (true) {
-        const next = entries.shift();
-        if (!next) {
-            if (line.length > 0) {
-                lines.push("// $antlr-format " + line);
-            }
-
-            break;
-        }
-
-        if (line.length + next.length > 130) {
-            lines.push("// $antlr-format " + line);
-            line = "";
-        }
-
-        line += (line.length > 0 ? ", " : "") + next;
-    }
-
-    return "\n" + lines.join("\n") + "\n\n";
 };
 
 /**

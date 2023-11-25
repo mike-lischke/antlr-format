@@ -3,11 +3,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { Interval, Token } from "antlr4ng";
+import { CharStreams, CommonTokenStream, Interval, Token } from "antlr4ng";
 
 import { ANTLRv4Lexer } from "./parser/ANTLRv4Lexer.js";
 import { IFormattingOptions } from "./types.js";
-import { convertToComment } from "./process-options.js";
 
 const formatIntroducer = "$antlr-format";
 
@@ -81,6 +80,46 @@ enum PredefinedInsertMarker {
 /** Insert markers are what the output pipeline (see below) is made of (if not direct token indices). */
 type InsertMarker = number | PredefinedInsertMarker;
 
+/**
+ * A helper method to convert a formatting options object to a comment string that can be inserted into a grammar.
+ *
+ * @param options The options to convert.
+ *
+ * @returns The comment string.
+ */
+export const convertToComment = (options: IFormattingOptions): string => {
+    const entries: string[] = [];
+    for (const [key, value] of Object.entries(options)) {
+        entries.push(`${key} ${value}`);
+    }
+
+    let line = "";
+    const lines: string[] = [];
+    while (true) {
+        const next = entries.shift();
+        if (!next) {
+            if (line.length > 0) {
+                lines.push("// $antlr-format " + line);
+            }
+
+            break;
+        }
+
+        if (line.length + next.length > 130) {
+            lines.push("// $antlr-format " + line);
+            line = "";
+        }
+
+        line += (line.length > 0 ? ", " : "") + next;
+    }
+
+    return "\n" + lines.join("\n") + "\n\n";
+};
+
+/**
+ * This class carries out the heavy lifting of formatting a grammar. It takes a list of tokens or a grammar as string
+ * and returns a formatted version of it.
+ */
 export class GrammarFormatter {
     private options: IFormattingOptions;
 
@@ -121,7 +160,21 @@ export class GrammarFormatter {
     /** Set to true if at least one formatting comment was found (to avoid adding additional formatting comments). */
     private containsFormattingOptions: boolean;
 
-    public constructor(private tokens: Token[], private addOptionsAsComment = false) { }
+    private tokens: Token[];
+
+    public constructor(grammar: string, addOptionsAsComment: boolean);
+    public constructor(tokens: Token[], addOptionsAsComment: boolean);
+    public constructor(grammarOrTokens: string | Token[], private addOptionsAsComment = false) {
+        if (typeof grammarOrTokens === "string") {
+            const lexer = new ANTLRv4Lexer(CharStreams.fromString(grammarOrTokens));
+            lexer.removeErrorListeners();
+            const tokenStream = new CommonTokenStream(lexer);
+            tokenStream.fill();
+            this.tokens = tokenStream.getTokens();
+        } else {
+            this.tokens = grammarOrTokens;
+        }
+    }
 
     /**
      * This is the main formatting routine.

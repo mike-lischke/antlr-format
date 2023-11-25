@@ -24,6 +24,8 @@
     },
     "include": [
         "src/**/*.ts",
+        "cli/antlr-format.ts",
+        "cli/process-options.ts",
     ],
     "exclude": [
         "dist",

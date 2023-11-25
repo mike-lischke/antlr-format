@@ -6,15 +6,16 @@
  */
 
 import process from "process";
-
 import { readFileSync, writeFileSync } from "fs";
 import { resolve } from "path";
-import { CharStreams, CommonTokenStream } from "antlr4ng";
 import { glob } from "glob";
+
 import { OptionValues, program } from "commander";
 
-import { GrammarFormatter, IConfigurationDetails, IFormattingOptions, processFormattingOptions } from "./index.js";
-import { ANTLRv4Lexer } from "./parser/ANTLRv4Lexer.js";
+import { CharStreams, CommonTokenStream } from "antlr4ng";
+import { GrammarFormatter, IConfigurationDetails, IFormattingOptions, processFormattingOptions } from "antlr-format";
+
+import { ANTLRv4Lexer } from "../src/parser/ANTLRv4Lexer.js";
 
 interface IAppParameters extends OptionValues {
     /** The path to a single source file or a glob pattern for multiple files. */
@@ -57,7 +58,7 @@ program
     .option("-c, --config <path>", "Path to a JSON file containing the formatting options to use.")
     .option("-s, --silent", "Suppress all output except errors.")
     .option("-v, --verbose", "Print additional information.")
-    .version("antlr-format 1.0.0")
+    .version("antlr-format 1.0.1")
     .parse();
 
 const options = program.opts<IAppParameters>();
@@ -97,10 +98,6 @@ const formatGrammar = (grammarPath: string, config: IConfigurationDetails, start
 
     lexer.removeErrorListeners();
     const tokenStream = new CommonTokenStream(lexer);
-
-    lexer.reset();
-    tokenStream.setTokenSource(lexer);
-
     tokenStream.fill();
     const tokens = tokenStream.getTokens();
 

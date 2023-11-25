@@ -5,4 +5,3 @@
 
 export * from "./types.js";
 export * from "./GrammarFormatter.js";
-export * from "./process-options.js";
