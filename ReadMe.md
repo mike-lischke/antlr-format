@@ -19,6 +19,10 @@ Read the [formatter documentation](doc/formatting.md) for further details and a 
 
 ## Release Notes
 
+### 2.0.2
+
+Fixed a problem related to getting raw content for output in the formatter (e.g. action text). Also changed a number of imports/settings to fix a problem with debugging the formatter in VS Code.
+
 ### 2.0.1
 
 Added missing type definition entry in package.json.
