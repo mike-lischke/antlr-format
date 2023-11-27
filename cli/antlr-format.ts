@@ -54,8 +54,7 @@ const matchBoolean = (value: string): boolean => {
 const start = performance.now();
 
 program
-    .requiredOption("-p, --pattern <path|pattern>", "The path to a grammar file or a glob pattern for multiple files" +
-        ", to be formatted.")
+    .argument("file1, pattern2, ...", "A list of files or glob patterns for multiple files.")
     .option<boolean>("-a, --add-options [boolean]", "Insert the used ANTLR grammar formatting " +
         "options to the grammar file, if it contains no options.", matchBoolean, true)
     .option("-c, --config <path>", "Path to a JSON file containing the formatting options to use.")
@@ -66,10 +65,9 @@ program
 
 const options = program.opts<IAppParameters>();
 
-const source = resolve(process.cwd(), options.pattern);
-const fileList = glob.sync(source, { nodir: true });
+const fileList = glob.sync(program.args, { nodir: true });
 if (fileList.length === 0) {
-    console.error(`No grammar file found using this pattern: ${source}.\n`);
+    console.error(`No grammar file found using this pattern: ${program.args.join(", ")}.\n`);
 
     process.exit(0);
 }
