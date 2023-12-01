@@ -614,7 +614,7 @@ export class GrammarFormatter {
                 case ANTLRv4Lexer.DOC_COMMENT: {
                     // If this comment is the first non-whitespace entry on the current line
                     // some extra processing is required.
-                    const hasLineContent = this.lineHasNonWhitespaceContent();
+                    const hasLineContent = this.lineHasLeadingNonWhitespaceContent();
                     let comment = token.text!;
                     if (hasLineContent) {
                         if (token.type === ANTLRv4Lexer.LINE_COMMENT) {
@@ -830,8 +830,18 @@ export class GrammarFormatter {
                 case ANTLRv4Lexer.PUBLIC:
                 case ANTLRv4Lexer.TOKEN_REF:
                 case ANTLRv4Lexer.RULE_REF: {
-                    if (!inNamedAction && !inBraces) {
+                    if (!inNamedAction && !inBraces && !inMeta && !inRule) {
+                        // Start of a rule.
                         inRule = true;
+
+                        this.removeTrailingWhitespaces();
+
+                        // Make sure the rule starts on an own line if the previous line is not a comment.
+                        if (!this.lastEntryIs(PredefinedInsertMarker.Comment)) {
+                            this.ensureMinEmptyLines();
+                        } else {
+                            this.addLineBreak();
+                        }
                     }
 
                     coalesceWhitespaces = true;
@@ -1312,7 +1322,12 @@ export class GrammarFormatter {
         return this.entryIs(this.outputPipeline.length - 1, marker);
     }
 
-    private lineHasNonWhitespaceContent(): boolean {
+    /**
+     * Checks if there's no non-whitespace entry between the current pipeline index and the start of the current line.
+     *
+     * @returns True if that's the case.
+     */
+    private lineHasLeadingNonWhitespaceContent(): boolean {
         let index = this.outputPipeline.length;
         while (--index > 0) {
             if (this.outputPipeline[index] !== PredefinedInsertMarker.Space
@@ -1515,13 +1530,12 @@ export class GrammarFormatter {
                         default: {
                             const tokenLength = token.stop - token.start + 1;
                             if (this.currentColumn + tokenLength > this.options.columnLimit!) {
-                                // Note: this implementation works on non-aligned content and allows alignments
-                                // after the word wrapping.
-                                // In cases where alignment moves text beyond the column limit, we don't do
-                                // another word wrapping round. Instead we let alignments overrule the column limit.
-                                // The same applies for exceeding of the column limit caused by deep/large indentation,
-                                // where the indentation already goes beyond that limit.
-                                if (this.lineHasNonWhitespaceContent()) {
+                                //  Note: this implementation permits alignment after word wrapping for non-aligned
+                                // content. If alignment moves text beyond the column limit, we forego a second
+                                // wrapping round and let alignments take precedence. The same goes for exceeding
+                                // the column limit due to deep or large indentation, where the indentation already
+                                // goes beyond that limit.
+                                if (this.lineHasLeadingNonWhitespaceContent()) {
                                     this.applyLineContinuation();
                                 }
                             }
@@ -2046,7 +2060,7 @@ export class GrammarFormatter {
         // While we allow multiple different alignment types on a single line, we don't want the same type
         // more than once on a line.
         if (status.lastLine !== this.currentLine) {
-            if (this.lineHasNonWhitespaceContent()) {
+            if (this.lineHasLeadingNonWhitespaceContent()) {
                 // Don't remove any indentation.
                 this.removeTrailingTabsAndSpaces();
             }

@@ -14,7 +14,7 @@
         "build": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outfile=dist/index.js --format=esm",
         "build-minified": "npm run build -- --minify",
         "build-watch": "npm run build -- --sourcemap --watch",
-        "format-grammar-repo": "antlr-format --pattern ../grammars-v4/**/*.g4 --config tests/config.json -a"
+        "format-grammar-repo": "antlr-format --config tests/config.json -a ../grammars-v4/**/*.g4"
     },
     "repository": {
         "type": "git",

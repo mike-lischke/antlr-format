@@ -7,7 +7,6 @@
 
 import process from "process";
 import { readFileSync, writeFileSync } from "fs";
-import { resolve } from "path";
 import { glob } from "glob";
 
 import { OptionValues, program } from "commander";
