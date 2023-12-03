@@ -231,12 +231,12 @@
       <path d="M187.999,312.509 L243.332,312.509 L243.332,378.842 L187.999,378.842 z M232.332,328.509 L198.999,328.509 L198.999,362.842 L232.332,362.842 L232.332,328.509 z" clip-path="url(#Clip_19)" filter="url(#InnerShadow_20)" fill="rgba(0,0,0,0.25)"/>
       <path d="M354.667,145.841 L410,145.841 L410,211.174 L354.667,211.174 z M399,161.841 L365.667,161.841 L365.667,195.174 L399,195.174 L399,161.841 z" clip-path="url(#Clip_21)" filter="url(#InnerShadow_22)" fill="rgba(0,0,0,0.25)"/>
     </g>
-    <text transform="matrix(1, 0, 0, 1, 1212.927, 165.5)">
+    <text transform="matrix(1, 0, 0, 1, 1272.927, 165.5)">
       <tspan x="-684.594" y="26.667" font-family="OpenSans-SemiBold" font-size="80" fill="#000000">Formatting Your ANTLR4 Grammar</tspan>
     </text>
     <g>
-      <path d="M707.667,244.666 L1873,244.666 L1873,362 L707.667,362 z" fill="#314752"/>
-      <text transform="matrix(1, 0, 0, 1, 1287.83, 309)">
+      <path d="M767.667,244.666 L1933,244.666 L1933,362 L767.667,362 z" fill="#314752"/>
+      <text transform="matrix(1, 0, 0, 1, 1347.83, 309)">
         <tspan x="-567.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#C2C299">SQL_TSI_SECOND_SYMBOL</tspan>
         <tspan x="-315.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">:  </tspan>
         <tspan x="-279.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
