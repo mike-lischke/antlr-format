@@ -2,6 +2,7 @@ grammar bug3862;
 
 // $antlr-format alignTrailingComments true, columnLimit 150, minEmptyLines 1, maxEmptyLinesToKeep 1, reflowComments false, useTab false
 // $antlr-format allowShortRulesOnASingleLine false, allowShortBlocksOnASingleLine true, alignSemicolons hanging, alignColons hanging
+
 graph
     : STRICT? (GRAPH | DIGRAPH) id_? '{' stmt_list '}' EOF
     ;
@@ -68,6 +69,7 @@ id_
 
 // "The keywords node, edge, graph, digraph, subgraph, and strict are
 // case-independent"
+
 STRICT
     : [Ss] [Tt] [Rr] [Ii] [Cc] [Tt]
     ;

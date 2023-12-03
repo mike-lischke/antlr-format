@@ -834,12 +834,9 @@ export class GrammarFormatter {
                         // Start of a rule.
                         inRule = true;
 
-                        this.removeTrailingWhitespaces();
-
                         // Make sure the rule starts on an own line if the previous line is not a comment.
-                        if (!this.lastEntryIs(PredefinedInsertMarker.Comment)) {
-                            this.ensureMinEmptyLines();
-                        } else {
+                        if (this.outputPipeline.length > 0 && this.lastEntryIs(PredefinedInsertMarker.Space)) {
+                            this.removeLastEntry();
                             this.addLineBreak();
                         }
                     }
