@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="2000" height="500" viewBox="0, 0, 2000, 500">
+  <defs>
+    <clipPath id="Clip_1">
+      <path d="M132.333,195.175 L132.333,228.509 L99,228.509 L99,195.175 L132.333,195.175 z"/>
+    </clipPath>
+    <filter id="InnerShadow_2">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_3">
+      <path d="M54.667,179.175 L110,179.175 L110,244.509 L54.667,244.509 z M99,195.175 L65.667,195.175 L65.667,228.509 L99,228.509 L99,195.175 z"/>
+    </clipPath>
+    <filter id="Shadow_4">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_5">
+      <path d="M287.999,179.175 L343.333,179.175 L343.333,244.509 L287.999,244.509 z M332.333,195.175 L298.999,195.175 L298.999,228.509 L332.333,228.509 L332.333,195.175 z"/>
+    </clipPath>
+    <filter id="Shadow_6">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_7">
+      <path d="M187.999,212.509 L243.332,212.509 L243.332,277.842 L187.999,277.842 z M232.332,228.509 L198.999,228.509 L198.999,261.842 L232.332,261.842 L232.332,228.509 z"/>
+    </clipPath>
+    <filter id="Shadow_8">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_9">
+      <path d="M421.333,212.509 L476.666,212.509 L476.666,277.842 L421.333,277.842 z M465.666,228.509 L432.333,228.509 L432.333,261.842 L465.666,261.842 L465.666,228.509 z"/>
+    </clipPath>
+    <filter id="Shadow_10">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_11">
+      <path d="M21.333,245.842 L76.667,245.842 L76.667,311.175 L21.333,311.175 z M65.667,261.842 L32.333,261.842 L32.333,295.175 L65.667,295.175 L65.667,261.842 z"/>
+    </clipPath>
+    <filter id="Shadow_12">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_13">
+      <path d="M254.666,245.842 L309.999,245.842 L309.999,311.175 L254.666,311.175 z M298.999,261.842 L265.666,261.842 L265.666,295.175 L298.999,295.175 L298.999,261.842 z"/>
+    </clipPath>
+    <filter id="Shadow_14">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_15">
+      <path d="M121.333,279.175 L176.666,279.175 L176.666,344.509 L121.333,344.509 z M165.666,295.175 L132.333,295.175 L132.333,328.509 L165.666,328.509 L165.666,295.175 z"/>
+    </clipPath>
+    <filter id="Shadow_16">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_17">
+      <path d="M354.666,279.175 L410,279.175 L410,344.509 L354.666,344.509 z M399,295.175 L365.666,295.175 L365.666,328.509 L399,328.509 L399,295.175 z"/>
+    </clipPath>
+    <filter id="Shadow_18">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_19">
+      <path d="M232.332,328.509 L232.332,362.842 L198.999,362.842 L198.999,328.509 L232.332,328.509 z"/>
+    </clipPath>
+    <filter id="InnerShadow_20">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+    <clipPath id="Clip_21">
+      <path d="M399,161.841 L399,195.174 L365.667,195.174 L365.667,161.841 L399,161.841 z"/>
+    </clipPath>
+    <filter id="InnerShadow_22">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="5"/>
+      <feOffset dx="0" dy="5" result="offsetblur"/>
+      <feFlood flood-color="#000000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+    </filter>
+  </defs>
+  <g id="Layer_1">
+    <g id="Shapes">
+      <path d="M232.333,129.509 L199,129.509 L199,97.176 L232.333,97.176 z" fill="#F3D15E"/>
+      <path d="M232.333,129.509 L265.666,129.509 L265.666,161.842 L232.333,161.842 z" fill="#F3D15E"/>
+      <path d="M399,161.841 L365.666,161.841 L365.666,129.508 L399,129.508 z" fill="#FEFFFF"/>
+      <path d="M365.666,129.509 L398.999,129.509 L398.999,161.842 L365.666,161.842 z" fill="#42606F"/>
+      <path d="M432.333,129.509 L465.666,129.509 L465.666,161.842 L432.333,161.842 z" fill="#E8615B"/>
+      <path d="M0,195.174 L32.333,195.174 L32.333,161.841 L0,161.841 z" fill="#F3D15E"/>
+      <path d="M32.333,129.008 L65.667,129.008 L65.667,162.341 L32.333,162.341 z" fill="#F3D15E"/>
+      <path d="M65.667,161.841 L99,161.841 L99,195.174 L65.667,195.174 z" fill="#52BDAD"/>
+      <path d="M132.333,195.175 L99,195.175 L99,161.842 L132.333,161.842 z" fill="#42606F"/>
+      <path d="M198.999,161.841 L232.332,161.841 L232.332,195.174 L198.999,195.174 z" fill="#52BDAD"/>
+      <path d="M232.333,161.841 L265.666,161.841 L265.666,195.174 L232.333,195.174 z" fill="#E8615B"/>
+      <path d="M265.666,161.841 L298.999,161.841 L298.999,195.174 L265.666,195.174 z" fill="#52BDAD"/>
+      <path d="M298.999,161.841 L332.333,161.841 L332.333,195.174 L298.999,195.174 z" fill="#E8615B"/>
+      <path d="M332.333,161.841 L365.666,161.841 L365.666,195.174 L332.333,195.174 z" fill="#52BDAD"/>
+      <path d="M399,161.841 L432.333,161.841 L432.333,195.174 L399,195.174 z" fill="#52BDAD"/>
+      <path d="M432.333,161.841 L465.666,161.841 L465.666,195.174 L432.333,195.174 z" fill="#F3D15E"/>
+      <path d="M465.666,195.174 L500,195.174 L500,161.841 L465.666,161.841 z" fill="#E8615B"/>
+      <path d="M0,228.51 L32.333,228.51 L32.333,195.175 L0,195.175 z" fill="#E98E4F"/>
+      <path d="M32.333,195.175 L65.667,195.175 L65.667,228.509 L32.333,228.509 z" fill="#E8615B"/>
+      <path d="M65.667,195.175 L99,195.175 L99,228.509 L65.667,228.509 z" fill="#E98E4F"/>
+      <g>
+        <path d="M99,195.175 L132.333,195.175 L132.333,228.509 L99,228.509 z" fill="#52BDAD"/>
+        <path d="M88,179.175 L143.333,179.175 L143.333,244.509 L88,244.509 z M132.333,195.175 L99,195.175 L99,228.509 L132.333,228.509 L132.333,195.175 z" clip-path="url(#Clip_1)" filter="url(#InnerShadow_2)" fill="rgba(0,0,0,0.5)"/>
+      </g>
+      <path d="M132.333,195.175 L165.666,195.175 L165.666,228.509 L132.333,228.509 z" fill="#42606F"/>
+      <path d="M165.666,195.175 L198.999,195.175 L198.999,228.509 L165.666,228.509 z" fill="#52BDAD"/>
+      <path d="M198.999,195.175 L232.332,195.175 L232.332,228.509 L198.999,228.509 z" fill="#42606F"/>
+      <path d="M232.333,195.175 L265.666,195.175 L265.666,228.509 L232.333,228.509 z" fill="#42606F"/>
+      <path d="M265.666,195.175 L298.999,195.175 L298.999,228.509 L265.666,228.509 z" fill="#E98E4F"/>
+      <path d="M298.999,195.175 L332.333,195.175 L332.333,228.509 L298.999,228.509 z" fill="#52BDAD"/>
+      <path d="M332.333,195.175 L365.666,195.175 L365.666,228.509 L332.333,228.509 z" fill="#42606F"/>
+      <path d="M365.666,195.175 L399,195.175 L399,228.509 L365.666,228.509 z" fill="#52BDAD"/>
+      <path d="M399,195.175 L432.333,195.175 L432.333,228.509 L399,228.509 z" fill="#F3D15E"/>
+      <path d="M432.333,195.175 L465.666,195.175 L465.666,228.509 L432.333,228.509 z" fill="#E8615B"/>
+      <path d="M465.666,228.51 L500,228.51 L500,195.175 L465.666,195.175 z" fill="#F3D15E"/>
+      <path d="M0,261.842 L32.333,261.842 L32.333,228.51 L0,228.51 z" fill="#E8615B"/>
+      <path d="M32.333,228.509 L65.667,228.509 L65.667,261.842 L32.333,261.842 z" fill="#E98E4F"/>
+      <path d="M65.667,228.509 L99,228.509 L99,261.842 L65.667,261.842 z" fill="#42606F"/>
+      <path d="M99,228.509 L132.333,228.509 L132.333,261.842 L99,261.842 z" fill="#E98E4F"/>
+      <path d="M132.333,228.509 L165.666,228.509 L165.666,261.842 L132.333,261.842 z" fill="#F3D15E"/>
+      <path d="M165.666,228.509 L198.999,228.509 L198.999,261.842 L165.666,261.842 z" fill="#E8615B"/>
+      <path d="M198.999,228.509 L232.332,228.509 L232.332,261.842 L198.999,261.842 z" fill="#52BDAD"/>
+      <path d="M232.333,228.509 L265.666,228.509 L265.666,261.842 L232.333,261.842 z" fill="#52BDAD"/>
+      <path d="M265.666,228.509 L298.999,228.509 L298.999,261.842 L265.666,261.842 z" fill="#F3D15E"/>
+      <path d="M298.999,228.509 L332.333,228.509 L332.333,261.842 L298.999,261.842 z" fill="#E98E4F"/>
+      <path d="M332.333,228.509 L365.666,228.509 L365.666,261.842 L332.333,261.842 z" fill="#F3D15E"/>
+      <path d="M365.666,228.509 L399,228.509 L399,261.842 L365.666,261.842 z" fill="#E8615B"/>
+      <path d="M399,228.509 L432.333,228.509 L432.333,261.842 L399,261.842 z" fill="#E8615B"/>
+      <path d="M432.333,228.509 L465.666,228.509 L465.666,261.842 L432.333,261.842 z" fill="#52BDAD"/>
+      <path d="M465.666,261.842 L500,261.842 L500,228.51 L465.666,228.51 z" fill="#42606F"/>
+      <path d="M0,295.174 L32.333,295.174 L32.333,261.842 L0,261.842 z" fill="#52BDAD"/>
+      <path d="M32.333,261.842 L65.667,261.842 L65.667,295.175 L32.333,295.175 z" fill="#42606F"/>
+      <path d="M65.667,261.842 L99,261.842 L99,295.175 L65.667,295.175 z" fill="#F3D15E"/>
+      <path d="M99,261.842 L132.333,261.842 L132.333,295.175 L99,295.175 z" fill="#E98E4F"/>
+      <path d="M132.333,261.842 L165.666,261.842 L165.666,295.175 L132.333,295.175 z" fill="#52BDAD"/>
+      <path d="M165.666,261.842 L198.999,261.842 L198.999,295.175 L165.666,295.175 z" fill="#F3D15E"/>
+      <path d="M198.999,261.842 L232.332,261.842 L232.332,295.175 L198.999,295.175 z" fill="#52BDAD"/>
+      <path d="M232.333,261.842 L265.666,261.842 L265.666,295.175 L232.333,295.175 z" fill="#42606F"/>
+      <path d="M265.666,261.842 L298.999,261.842 L298.999,295.175 L265.666,295.175 z" fill="#E8615B"/>
+      <path d="M298.999,261.842 L332.333,261.842 L332.333,295.175 L298.999,295.175 z" fill="#F3D15E"/>
+      <path d="M332.333,261.842 L365.666,261.842 L365.666,295.175 L332.333,295.175 z" fill="#42606F"/>
+      <path d="M365.666,261.842 L399,261.842 L399,295.175 L365.666,295.175 z" fill="#E98E4F"/>
+      <path d="M399,261.842 L432.333,261.842 L432.333,295.175 L399,295.175 z" fill="#E8615B"/>
+      <path d="M432.333,261.842 L465.666,261.842 L465.666,295.175 L432.333,295.175 z" fill="#F3D15E"/>
+      <path d="M465.666,295.174 L500,295.174 L500,261.842 L465.666,261.842 z" fill="#E8615B"/>
+      <path d="M0,328.509 L32.333,328.509 L32.333,295.175 L0,295.175 z" fill="#E98E4F"/>
+      <path d="M32.333,295.175 L65.667,295.175 L65.667,328.509 L32.333,328.509 z" fill="#52BDAD"/>
+      <path d="M65.667,295.175 L99,295.175 L99,328.509 L65.667,328.509 z" fill="#F3D15E"/>
+      <path d="M99,295.175 L132.333,295.175 L132.333,328.509 L99,328.509 z" fill="#F3D15E"/>
+      <path d="M132.333,295.175 L165.666,295.175 L165.666,328.509 L132.333,328.509 z" fill="#42606F"/>
+      <path d="M165.666,295.175 L198.999,295.175 L198.999,328.509 L165.666,328.509 z" fill="#E98E4F"/>
+      <path d="M198.999,295.175 L232.332,295.175 L232.332,328.509 L198.999,328.509 z" fill="#E8615B"/>
+      <path d="M232.333,295.175 L265.666,295.175 L265.666,328.509 L232.333,328.509 z" fill="#52BDAD"/>
+      <path d="M265.666,295.175 L298.999,295.175 L298.999,328.509 L265.666,328.509 z" fill="#E98E4F"/>
+      <path d="M298.999,295.175 L332.333,295.175 L332.333,328.509 L298.999,328.509 z" fill="#E98E4F"/>
+      <path d="M332.333,295.175 L365.666,295.175 L365.666,328.509 L332.333,328.509 z" fill="#E8615B"/>
+      <path d="M365.666,295.175 L399,295.175 L399,328.509 L365.666,328.509 z" fill="#F3D15E"/>
+      <path d="M399,295.175 L432.333,295.175 L432.333,328.509 L399,328.509 z" fill="#42606F"/>
+      <path d="M432.333,295.175 L465.666,295.175 L465.666,328.509 L432.333,328.509 z" fill="#E8615B"/>
+      <path d="M465.666,328.509 L500,328.509 L500,295.175 L465.666,295.175 z" fill="#E98E4F"/>
+      <path d="M0,362.842 L32.333,362.842 L32.333,328.509 L0,328.509 z" fill="#F3D15E"/>
+      <path d="M32.333,328.509 L65.667,328.509 L65.667,362.842 L32.333,362.842 z" fill="#52BDAD"/>
+      <path d="M132.333,362.842 L165.666,362.842 L165.666,397.175 L132.333,397.175 z" fill="#52BDAD"/>
+      <path d="M99,328.509 L132.333,328.509 L132.333,362.842 L99,362.842 z" fill="#E98E4F"/>
+      <path d="M132.333,328.509 L165.666,328.509 L165.666,362.842 L132.333,362.842 z" fill="#F3D15E"/>
+      <path d="M165.666,328.509 L198.999,328.509 L198.999,362.842 L165.666,362.842 z" fill="#F3D15E"/>
+      <path d="M232.333,328.509 L265.666,328.509 L265.666,362.842 L232.333,362.842 z" fill="#E8615B"/>
+      <path d="M332.333,328.509 L365.666,328.509 L365.666,362.842 L332.333,362.842 z" fill="#42606F"/>
+      <path d="M298.999,362.842 L332.333,362.842 L332.333,397.175 L298.999,397.175 z" fill="#F3D15E"/>
+      <path d="M399,328.509 L432.333,328.509 L432.333,362.842 L399,362.842 z" fill="#52BDAD"/>
+      <path d="M432.333,328.509 L465.666,328.509 L465.666,362.842 L432.333,362.842 z" fill="#F3D15E"/>
+      <path d="M465.666,397.175 L500,397.175 L500,362.842 L465.666,362.842 z" fill="#F3D15E"/>
+      <g>
+        <path d="M99,195.175 L99,228.509 L65.667,228.509 L65.667,195.175 L99,195.175 z" clip-path="url(#Clip_3)" filter="url(#Shadow_4)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M65.667,195.175 L99,195.175 L99,228.509 L65.667,228.509 z" fill="#F3D15E"/>
+      </g>
+      <g>
+        <path d="M332.333,195.175 L332.333,228.509 L298.999,228.509 L298.999,195.175 L332.333,195.175 z" clip-path="url(#Clip_5)" filter="url(#Shadow_6)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M298.999,195.175 L332.333,195.175 L332.333,228.509 L298.999,228.509 z" fill="#52BDAD"/>
+      </g>
+      <g>
+        <path d="M232.332,228.509 L232.332,261.842 L198.999,261.842 L198.999,228.509 L232.332,228.509 z" clip-path="url(#Clip_7)" filter="url(#Shadow_8)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M198.999,228.509 L232.332,228.509 L232.332,261.842 L198.999,261.842 z" fill="#E8615B"/>
+      </g>
+      <g>
+        <path d="M465.666,228.509 L465.666,261.842 L432.333,261.842 L432.333,228.509 L465.666,228.509 z" clip-path="url(#Clip_9)" filter="url(#Shadow_10)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M432.333,228.509 L465.666,228.509 L465.666,261.842 L432.333,261.842 z" fill="#52BDAD"/>
+      </g>
+      <g>
+        <path d="M65.667,261.842 L65.667,295.175 L32.333,295.175 L32.333,261.842 L65.667,261.842 z" clip-path="url(#Clip_11)" filter="url(#Shadow_12)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M32.333,261.842 L65.667,261.842 L65.667,295.175 L32.333,295.175 z" fill="#E8615B"/>
+      </g>
+      <g>
+        <path d="M298.999,261.842 L298.999,295.175 L265.666,295.175 L265.666,261.842 L298.999,261.842 z" clip-path="url(#Clip_13)" filter="url(#Shadow_14)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M265.666,261.842 L298.999,261.842 L298.999,295.175 L265.666,295.175 z" fill="#F3D15E"/>
+      </g>
+      <g>
+        <path d="M165.666,295.175 L165.666,328.509 L132.333,328.509 L132.333,295.175 L165.666,295.175 z" clip-path="url(#Clip_15)" filter="url(#Shadow_16)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M132.333,295.175 L165.666,295.175 L165.666,328.509 L132.333,328.509 z" fill="#E8615B"/>
+      </g>
+      <g>
+        <path d="M399,295.175 L399,328.509 L365.666,328.509 L365.666,295.175 L399,295.175 z" clip-path="url(#Clip_17)" filter="url(#Shadow_18)" fill="rgba(0,0,0,0.5)"/>
+        <path d="M365.666,295.175 L399,295.175 L399,328.509 L365.666,328.509 z" fill="#F3D15E"/>
+      </g>
+      <path d="M187.999,312.509 L243.332,312.509 L243.332,378.842 L187.999,378.842 z M232.332,328.509 L198.999,328.509 L198.999,362.842 L232.332,362.842 L232.332,328.509 z" clip-path="url(#Clip_19)" filter="url(#InnerShadow_20)" fill="rgba(0,0,0,0.25)"/>
+      <path d="M354.667,145.841 L410,145.841 L410,211.174 L354.667,211.174 z M399,161.841 L365.667,161.841 L365.667,195.174 L399,195.174 L399,161.841 z" clip-path="url(#Clip_21)" filter="url(#InnerShadow_22)" fill="rgba(0,0,0,0.25)"/>
+    </g>
+    <text transform="matrix(1, 0, 0, 1, 1212.927, 165.5)">
+      <tspan x="-684.594" y="26.667" font-family="OpenSans-SemiBold" font-size="80" fill="#000000">Formatting Your ANTLR4 Grammar</tspan>
+    </text>
+    <g>
+      <path d="M707.667,244.666 L1873,244.666 L1873,362 L707.667,362 z" fill="#314752"/>
+      <text transform="matrix(1, 0, 0, 1, 1287.83, 309)">
+        <tspan x="-567.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#C2C299">SQL_TSI_SECOND_SYMBOL</tspan>
+        <tspan x="-315.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">:  </tspan>
+        <tspan x="-279.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
+        <tspan x="-267.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-255.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">Q</tspan>
+        <tspan x="-243.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-231.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">L</tspan>
+        <tspan x="-219.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-207.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#E5BD46">'_'</tspan>
+        <tspan x="-171.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-159.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">T</tspan>
+        <tspan x="-147.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-135.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
+        <tspan x="-123.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-111.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">I</tspan>
+        <tspan x="-99.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-87.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#E5BD46">'_'</tspan>
+        <tspan x="-51.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-39.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
+        <tspan x="-27.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-15.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">E</tspan>
+        <tspan x="-3.497" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="8.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">C</tspan>
+        <tspan x="20.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="32.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">O</tspan>
+        <tspan x="44.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="56.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">N</tspan>
+        <tspan x="68.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="80.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">D</tspan>
+        <tspan x="92.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">   </tspan>
+        <tspan x="128.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#CC666A">-&gt;</tspan>
+        <tspan x="152.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="164.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#C2C299">type</tspan>
+        <tspan x="212.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#63BF8D">(SECOND_SYMBOL)</tspan>
+        <tspan x="392.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">;  </tspan>
+        <tspan x="428.503" y="-23.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#52A0CB">// Synonym</tspan>
+        <tspan x="-567.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#C2C299">SQL_TSI_MINUTE_SYMBOL</tspan>
+        <tspan x="-315.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">:  </tspan>
+        <tspan x="-279.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
+        <tspan x="-267.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-255.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">Q</tspan>
+        <tspan x="-243.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-231.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">L</tspan>
+        <tspan x="-219.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-207.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#E5BD46">'_'</tspan>
+        <tspan x="-171.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-159.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">T</tspan>
+        <tspan x="-147.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-135.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
+        <tspan x="-123.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-111.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">I</tspan>
+        <tspan x="-99.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-87.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#E5BD46">'_'</tspan>
+        <tspan x="-51.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-39.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">M</tspan>
+        <tspan x="-27.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-15.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">I</tspan>
+        <tspan x="-3.497" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="8.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">N</tspan>
+        <tspan x="20.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="32.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">U</tspan>
+        <tspan x="44.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="56.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">T</tspan>
+        <tspan x="68.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="80.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">E</tspan>
+        <tspan x="92.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">   </tspan>
+        <tspan x="128.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#CC666A">-&gt;</tspan>
+        <tspan x="152.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="164.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#C2C299">type</tspan>
+        <tspan x="212.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#63BF8D">(MINUTE_SYMBOL)</tspan>
+        <tspan x="392.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">;  </tspan>
+        <tspan x="428.503" y="0.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#52A0CB">// Synonym</tspan>
+        <tspan x="-567.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#C2C299">SQL_TSI_HOUR_SYMBOL</tspan>
+        <tspan x="-339.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">:    </tspan>
+        <tspan x="-279.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
+        <tspan x="-267.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-255.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">Q</tspan>
+        <tspan x="-243.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-231.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">L</tspan>
+        <tspan x="-219.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-207.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#E5BD46">'_'</tspan>
+        <tspan x="-171.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-159.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">T</tspan>
+        <tspan x="-147.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-135.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">S</tspan>
+        <tspan x="-123.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-111.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">I</tspan>
+        <tspan x="-99.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-87.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#E5BD46">'_'</tspan>
+        <tspan x="-51.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-39.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">H</tspan>
+        <tspan x="-27.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="-15.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">O</tspan>
+        <tspan x="-3.497" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="8.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">U</tspan>
+        <tspan x="20.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="32.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#D7D7C7">R</tspan>
+        <tspan x="44.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">       </tspan>
+        <tspan x="128.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#CC666A">-&gt;</tspan>
+        <tspan x="152.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB"> </tspan>
+        <tspan x="164.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#C2C299">type</tspan>
+        <tspan x="212.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#63BF8D">(HOUR_SYMBOL)</tspan>
+        <tspan x="368.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#BBBBBB">;    </tspan>
+        <tspan x="428.503" y="24.5" font-family="ProFontForPowerline" font-size="24" kerning="0" fill="#52A0CB">// Synonym</tspan>
+      </text>
+    </g>
+  </g>
+</svg>
