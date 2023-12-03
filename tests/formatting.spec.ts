@@ -109,7 +109,7 @@ describe("Formatting", () => {
         }
     });
 
-    it.only("Bug antlr/grammars-v4#3862", () => {
+    it("Bug antlr/grammars-v4#3862", () => {
         const [text] = formatGrammar("tests/formatting/bug3862.g4", { reflowComments: true }, 0, 1e10);
         //fs.writeFileSync("tests/formatting-results/bug3862.g4", text, "utf8");
         const expected = fs.readFileSync("tests/formatting-results/bug3862.g4", { encoding: "utf8" });
