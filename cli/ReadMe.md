@@ -37,6 +37,10 @@ Run the tool with `--help` to have it print its supported parameters. For a deta
 
 ## Release Notes
 
+### 1.2.1
+
+Updated the tool with the latest `antlr-format` package.
+
 ### 1.2.0
 
 The `--pattern` parameters has been removed. Instead files + patterns can be passed to the tool without any option name, but the file list has been moved to the end of the arguments list.
