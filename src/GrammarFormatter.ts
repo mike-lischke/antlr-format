@@ -1216,7 +1216,9 @@ export class GrammarFormatter {
 
                 case PredefinedInsertMarker.FormattingOptions: {
                     // Only the given options, not the full set with all defaults.
-                    result += convertToComment(options);
+                    if (!this.containsFormattingOptions) {
+                        result += convertToComment(options);
+                    }
 
                     break;
                 }

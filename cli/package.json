@@ -36,6 +36,6 @@
         "antlr4ng": "2.0.2",
         "commander": "11.1.0",
         "glob": "10.3.10",
-        "ts-json-schema-generator": "1.4.0"
+        "ts-json-schema-generator": "1.4.1"
     }
 }

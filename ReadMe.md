@@ -10,7 +10,7 @@ The `antlr-format` package provides a small library to format your ANTLR4 gramma
 Nothing special here, just use NPM (or any other package manager):
 
 ```bash
-npm i antlr-format 
+npm i antlr-format
 ```
 
 ## Usage
@@ -19,11 +19,12 @@ Read the [formatter documentation](doc/formatting.md) for further details and a 
 
 ## Release Notes
 
-### 2.0.3
+### 2.0.3 - 2.0.4
 
 - Fixed bug where rule names after block comments where not placed on an own line;
 - Added support for colons in blocks, which are optional and may align with alts just like on rule level.
 - Added support for rule options, which are formatted like global options.
+- Fixed a bug where the formatter added formatting options, even if there were already some in the grammar.
 
 ### 2.0.2
 

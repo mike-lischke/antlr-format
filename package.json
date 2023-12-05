@@ -2,11 +2,11 @@
     "name": "antlr-format",
     "author": "Mike Lischke",
     "license": "MIT",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "A formatter lib for ANTLR4 grammars",
     "type": "module",
     "main": "dist/index.js",
-    "types": "dist/src/index.d.ts",
+    "types": "dist/index.d.ts",
     "scripts": {
         "generate": "antlr4ng -Dlanguage=TypeScript -no-visitor -no-listener -Xexact-output-dir grammars/LexBasic.g4 grammars/ANTLRv4Lexer.g4 -o src/parser",
         "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --no-coverage",
