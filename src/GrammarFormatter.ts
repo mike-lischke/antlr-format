@@ -318,10 +318,12 @@ export class GrammarFormatter {
                     break;
                 }
 
-                case ANTLRv4Lexer.COLON: { // Also pretty clear. We are in a rule.
+                case ANTLRv4Lexer.COLON: { // The start of a block (either top level as part of the rule, or nested).
                     if (this.tokens[run].line < startRow) {
-                        ++this.currentIndentation;
-                        inRule = true;
+                        if (!inRule) {
+                            ++this.currentIndentation;
+                            inRule = true;
+                        }
                         coalesceWhitespaces = true;
                     }
                     done = true;
@@ -341,33 +343,47 @@ export class GrammarFormatter {
                 case ANTLRv4Lexer.OPTIONS:
                 case ANTLRv4Lexer.TOKENS:
                 case ANTLRv4Lexer.CHANNELS: // These tokens include an opening curly brace.
-                case ANTLRv4Lexer.BEGIN_ACTION:
+                case ANTLRv4Lexer.BEGIN_ACTION: {
                     // A braced block.
                     if (this.tokens[run].line < startRow) {
                         ++this.currentIndentation;
                         inBraces = true;
                     }
                     done = true;
+
                     break;
+                }
+
                 case ANTLRv4Lexer.RBRACE:
-                case ANTLRv4Lexer.END_ACTION:
+                case ANTLRv4Lexer.END_ACTION: {
                     done = true;
+
                     break;
-                case ANTLRv4Lexer.LPAREN:
+                }
+
+                case ANTLRv4Lexer.LPAREN: {
                     if (this.tokens[run].line < startRow) {
                         ++this.currentIndentation;
                     }
                     --run;
+
                     break;
-                case ANTLRv4Lexer.RPAREN:
+                }
+
+                case ANTLRv4Lexer.RPAREN: {
                     if (this.tokens[run].line < startRow) {
                         --this.currentIndentation;
                     }
                     --run;
+
                     break;
-                default:
+                }
+
+                default: {
                     --run;
+
                     break;
+                }
             }
         }
 
@@ -533,7 +549,11 @@ export class GrammarFormatter {
 
                     coalesceWhitespaces = true;
 
-                    ++this.currentIndentation;
+                    if (!inRule) {
+                        // A top level option block needs explicit indentation.
+                        ++this.currentIndentation;
+                    }
+
                     inBraces = true;
 
                     if (!this.nonBreakingTrailerAhead(i)) {
@@ -545,19 +565,22 @@ export class GrammarFormatter {
                 }
 
                 case ANTLRv4Lexer.RBRACE: {
+                    // Right curly braces can end an action block and option blocks (either global or rule options).
+                    // Global options reduce the indentation level, while rule options and actions don't.
                     this.removeTrailingWhitespaces();
                     this.addLineBreak();
-                    if (this.currentIndentation > 0) {
-                        --this.currentIndentation;
+                    --this.currentIndentation;
+                    if (!inRule) {
+                        minLineInsertionPending = this.currentIndentation === 0;
+                    } else {
+                        this.pushCurrentIndentation();
+                        ++this.currentIndentation; // Return to previous indentation level.
                     }
-                    this.pushCurrentIndentation();
                     this.add(i);
 
-                    minLineInsertionPending = this.currentIndentation === 0;
-
-                    inBraces = false;
                     coalesceWhitespaces = false;
-                    inRule = false;
+                    inBraces = false;
+
                     break;
                 }
 
@@ -707,9 +730,7 @@ export class GrammarFormatter {
                             this.addSpace();
                         } else {
                             this.addLineBreak();
-                            ++this.currentIndentation;
                             this.pushCurrentIndentation();
-                            --this.currentIndentation;
                         }
                     } else {
                         inNamedAction = true;
@@ -721,8 +742,6 @@ export class GrammarFormatter {
                 }
 
                 case ANTLRv4Lexer.COLON: {
-                    ++this.currentIndentation;
-
                     let { singleLineLength } = this.getBlockInfo(i, new Set([ANTLRv4Lexer.SEMI]));
                     singleLineLength += this.currentColumn;
                     if (this.options.allowShortRulesOnASingleLine
@@ -740,6 +759,8 @@ export class GrammarFormatter {
                             this.pushCurrentIndentation(forceNewLine);
                             this.add(i);
                             this.addSpace();
+                            this.add(PredefinedInsertMarker.WhitespaceEraser);
+
                             break;
                         }
                         case "none": {
@@ -751,6 +772,7 @@ export class GrammarFormatter {
                             } else {
                                 this.addSpace();
                             }
+
                             break;
                         }
 
@@ -767,6 +789,7 @@ export class GrammarFormatter {
                             } else {
                                 this.addSpace();
                             }
+
                             break;
                         }
 
@@ -777,6 +800,7 @@ export class GrammarFormatter {
 
                     // Aligning the first token only makes sense if the entire rule is on a single line.
                     if (this.options.alignFirstTokens && inSingleLineRule) {
+                        this.removeTrailingWhitespaces();
                         this.addAlignmentEntry(AlignmentType.FirstToken);
                         this.add(PredefinedInsertMarker.WhitespaceEraser);
                     }
@@ -833,6 +857,7 @@ export class GrammarFormatter {
                     if (!inNamedAction && !inBraces && !inMeta && !inRule) {
                         // Start of a rule.
                         inRule = true;
+                        ++this.currentIndentation;
 
                         // Make sure the rule starts on an own line if the previous line is not a comment.
                         if (this.outputPipeline.length > 0 && this.lastEntryIs(PredefinedInsertMarker.Space)) {
@@ -1088,29 +1113,33 @@ export class GrammarFormatter {
                         this.addSpace();
                     } else {
                         this.addLineBreak();
-                        ++this.currentIndentation;
                         this.pushCurrentIndentation();
-                        --this.currentIndentation;
                     }
                     this.add(i);
                     break;
                 }
 
-                case ANTLRv4Lexer.STRING_LITERAL:
+                case ANTLRv4Lexer.STRING_LITERAL: {
                     this.add(i);
                     this.addSpace();
-                    break;
 
-                case Token.EOF:
+                    break;
+                }
+
+                case Token.EOF: {
                     // Ensure a line break at the end of the text.
                     this.removeTrailingWhitespaces();
                     this.addLineBreak();
-                    break;
 
-                default:
+                    break;
+                }
+
+                default: {
                     coalesceWhitespaces = true;
                     this.add(i);
+
                     break;
+                }
             }
         }
 
@@ -1421,7 +1450,8 @@ export class GrammarFormatter {
             return;
         }
 
-        while (this.lastEntryIs(PredefinedInsertMarker.Whitespace)) {
+        while (this.lastEntryIs(PredefinedInsertMarker.Whitespace)
+            || this.lastEntryIs(PredefinedInsertMarker.WhitespaceEraser)) {
             this.removeLastEntry();
         }
     }

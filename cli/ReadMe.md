@@ -1,7 +1,7 @@
 [![Weekly Downloads](https://img.shields.io/npm/dw/antlr-format-cli?style=for-the-badge&color=blue)](https://www.npmjs.com/package/antlr-format-cli)
 [![npm version](https://img.shields.io/npm/v/antlr-format-cli?style=for-the-badge&color=yellow)](https://www.npmjs.com/package/antlr-format-cli)
 
-# <img src="https://raw.githubusercontent.com/mike-lischke/antlr-format/master/images/logo.svg" alt="antlr-format" style="width: 128px; height: 128px; vertical-align: bottom">Formatting Your ANTLR4 Grammars
+# <img src="https://raw.githubusercontent.com/mike-lischke/antlr-format/master/images/formatter-title.png" alt="antlr-format">
 
 The `antlr-format-cli` package is a terminal tool to use the [`antlr-format`](https://www.npmjs.com/package/antlr-format) package in a terminal, in batch files and other automatic formatting scenarios.
 

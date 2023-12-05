@@ -423,7 +423,7 @@ finally {
 
 // $antlr-format ruleInternalsOnSingleLine: on
 unused[double input = 111] returns[double calculated] locals[int _a, double _b, int _c] @init { doInit(); 
-	} @after { doAfter(); }: stat;
+		} @after { doAfter(); }: stat;
 catch[...] {
   // Replaces the standard exception handling.
 }

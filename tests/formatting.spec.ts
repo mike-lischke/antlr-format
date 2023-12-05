@@ -110,9 +110,23 @@ describe("Formatting", () => {
     });
 
     it("Bug antlr/grammars-v4#3862", () => {
-        const [text] = formatGrammar("tests/formatting/bug3862.g4", { reflowComments: true }, 0, 1e10);
+        const [text] = formatGrammar("tests/formatting/bug3862.g4", {}, 0, 1e10);
         //fs.writeFileSync("tests/formatting-results/bug3862.g4", text, "utf8");
         const expected = fs.readFileSync("tests/formatting-results/bug3862.g4", { encoding: "utf8" });
+        expect(expected).toEqual(text);
+    });
+
+    it("Colons in blocks", () => {
+        const [text] = formatGrammar("tests/formatting/Colons.g4", {}, 0, 1e10);
+        //fs.writeFileSync("tests/formatting-results/colons.g4", text, "utf8");
+        const expected = fs.readFileSync("tests/formatting-results/colons.g4", { encoding: "utf8" });
+        expect(expected).toEqual(text);
+    });
+
+    it("Rule options", () => {
+        const [text] = formatGrammar("tests/formatting/RuleOptions.g4", {}, 0, 1e10);
+        fs.writeFileSync("tests/formatting-results/RuleOptions.g4", text, "utf8");
+        const expected = fs.readFileSync("tests/formatting-results/RuleOptions.g4", { encoding: "utf8" });
         expect(expected).toEqual(text);
     });
 });
