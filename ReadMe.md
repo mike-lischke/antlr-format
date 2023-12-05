@@ -19,6 +19,10 @@ Read the [formatter documentation](doc/formatting.md) for further details and a 
 
 ## Release Notes
 
+### 2.1.0
+
+Made `useTab` false by default. No idea why I made this true by default. I hate tabs in source files.
+
 ### 2.0.3 - 2.0.4
 
 - Fixed bug where rule names after block comments where not placed on an own line;
