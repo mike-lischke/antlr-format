@@ -1276,7 +1276,7 @@ export class GrammarFormatter {
         this.options.reflowComments = false;
         this.options.spaceBeforeAssignmentOperators = true;
         this.options.tabWidth = 4;
-        this.options.useTab = true;
+        this.options.useTab = false;
 
         this.options.alignColons = "none";
         this.options.allowShortRulesOnASingleLine = true;

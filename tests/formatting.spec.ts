@@ -102,8 +102,7 @@ describe("Formatting", () => {
             };
 
             //fs.writeFileSync("tests/formatting-results/res-" + rangeTest.result, text, "utf8");
-            const expected = fs.readFileSync("tests/formatting-results/" + rangeTest.result,
-                { encoding: "utf8" });
+            const expected = fs.readFileSync("tests/formatting-results/" + rangeTest.result, { encoding: "utf8" });
             expect(range).toStrictEqual(rangeTest.target);
             expect(expected).toEqual(text);
         }

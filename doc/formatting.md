@@ -102,7 +102,7 @@ The formatter not only formats entire files, but can also apply your rules only 
 * **reflowComments**: boolean (default: false), reformat comments to fit the column limit
 * **spaceBeforeAssignmentOperators**: boolean (default: true), enables spaces around operators
 * **tabWidth**: number (default: 4), multiples of this value determine tab stops in a document
-* **useTab**: boolean (default: true), use tabs for indentation (otherwise spaces)
+* **useTab**: boolean (default: false), use tabs for indentation (otherwise spaces)
 * **alignColons**: string enum (default: "none"), align colons among rules (scope depends on groupedAlignments)
     * **none**: place the colon directly after the rule name
     * **trailing**: align colons in the alignment group, directly after rule names

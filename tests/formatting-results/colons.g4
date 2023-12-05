@@ -7,17 +7,17 @@ start: (: COMMA | DOT) | DOT;
 // $antlr-format alignColons hanging, allowShortBlocksOnASingleLine off, allowShortRulesOnASingleLine off
 
 end
-	: (
-		: COMMA
-		| DOT
-	)
-	| DOT
+    : (
+        : COMMA
+        | DOT
+    )
+    | DOT
 ;
 
 DOT
-	: '.'
+    : '.'
 ;
 
 COMMA
-	: ','
+    : ','
 ;
