@@ -763,6 +763,7 @@ export class GrammarFormatter {
 
                             break;
                         }
+
                         case "none": {
                             this.removeTrailingWhitespaces();
                             this.add(i);
@@ -777,11 +778,15 @@ export class GrammarFormatter {
                         }
 
                         case "trailing": {
-                            this.removeTrailingWhitespaces();
+                            if (!this.lastRealTokenIs(ANTLRv4Lexer.LINE_COMMENT)) {
+                                this.removeTrailingWhitespaces();
+                            }
+
                             if (this.singleLineBlockNesting > 0) {
                                 this.addAlignmentEntry(AlignmentType.Colon);
                                 this.add(PredefinedInsertMarker.WhitespaceEraser);
                             }
+
                             this.add(i);
                             if (!this.nonBreakingTrailerAhead(i) && !inSingleLineRule) {
                                 this.addLineBreak();
@@ -793,9 +798,7 @@ export class GrammarFormatter {
                             break;
                         }
 
-                        default: {
-                            break;
-                        }
+                        default:
                     }
 
                     // Aligning the first token only makes sense if the entire rule is on a single line.
@@ -1371,11 +1374,11 @@ export class GrammarFormatter {
     }
 
     /**
-     * Skips over all comments and whitespaces backwards and checks the value of the value after that.
+     * Skips over all comments and whitespaces backwards and checks the value of the value before that.
      *
      * @param marker The marker type for which to test.
      *
-     * @returns True if the last non-whitespace token is of the given type.
+     * @returns True if the last non-whitespace and non-comment token is of the given type.
      */
     private lastCodeTokenIs(marker: InsertMarker): boolean {
         let i = this.outputPipeline.length - 1;
@@ -1388,6 +1391,32 @@ export class GrammarFormatter {
             }
             --i;
         }
+
+        if (i < 0 || this.outputPipeline[i] < 0) {
+            return false;
+        }
+
+        return this.tokens[this.outputPipeline[i]].type === marker;
+    }
+
+    /**
+     * Skips over all whitespaces backwards and checks the value of the value before that.
+     *
+     * @param marker The marker type for which to test.
+     *
+     * @returns True if the last non-whitespace token is of the given type.
+     */
+    private lastRealTokenIs(marker: InsertMarker): boolean {
+        let i = this.outputPipeline.length - 1;
+        while (i >= 0) {
+            if (!this.entryIs(i, PredefinedInsertMarker.WhitespaceEraser)
+                && !this.entryIs(i, PredefinedInsertMarker.Whitespace)
+                && !this.entryIs(i, PredefinedInsertMarker.LineBreak)) {
+                break;
+            }
+            --i;
+        }
+
         if (i < 0 || this.outputPipeline[i] < 0) {
             return false;
         }
@@ -2212,16 +2241,24 @@ export class GrammarFormatter {
         while (++run < offset) {
             const entry = this.outputPipeline[run];
             switch (entry) {
-                case PredefinedInsertMarker.Space:
+                case PredefinedInsertMarker.Space: {
                     text += " ";
+
                     break;
-                case PredefinedInsertMarker.Tab:
+                }
+
+                case PredefinedInsertMarker.Tab: {
                     text += "\t";
+
                     break;
+                }
+
                 case PredefinedInsertMarker.WhitespaceEraser: // Ignore.
-                case PredefinedInsertMarker.Error:
+                case PredefinedInsertMarker.Error: {
                     break;
-                default:
+                }
+
+                default: {
                     // We cannot see alignment markers here (as we are currently processing one),
                     // nor whitespace blocks (we are inserting them afterwards).
                     if (entry < 0) {
@@ -2239,8 +2276,9 @@ export class GrammarFormatter {
                     } else {
                         text += this.tokens[entry].text;
                     }
-                    break;
 
+                    break;
+                }
             }
         }
 
