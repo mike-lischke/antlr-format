@@ -136,7 +136,7 @@ describe("Formatting", () => {
     });
 
     it("Bug #2", () => {
-        // A bug which describes that a repeated formatting of the same file leads to a different result.
+        // A bug describing how repeatedly formatting the same file produces a different result.
         const configText = fs.readFileSync("tests/formatting/bug#2-config.json", { encoding: "utf8" });
         const config = JSON.parse(configText) as IConfiguration;
 
@@ -151,9 +151,9 @@ describe("Formatting", () => {
         expect(second).toEqual(third);
 
         const [fourth] = formatGrammar(third, config.lexer!, 0, 1e10);
-        expect(third).toEqual(third);
+        expect(third).toEqual(fourth);
 
         const [fifth] = formatGrammar(fourth, config.lexer!, 0, 1e10);
-        expect(fifth).toEqual(fourth);
+        expect(fourth).toEqual(fifth);
     });
 });
