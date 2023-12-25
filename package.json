@@ -2,7 +2,7 @@
     "name": "antlr-format",
     "author": "Mike Lischke",
     "license": "MIT",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "description": "A formatter lib for ANTLR4 grammars",
     "type": "module",
     "main": "dist/index.js",
@@ -31,7 +31,7 @@
     },
     "homepage": "https://github.com/mike-lischke/antlr-format",
     "dependencies": {
-        "antlr4ng": "2.0.2"
+        "antlr4ng": "2.0.4"
     },
     "devDependencies": {
         "@types/jest": "29.5.8",
