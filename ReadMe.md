@@ -19,6 +19,10 @@ Read the [formatter documentation](doc/formatting.md) for further details and a 
 
 ## Release Notes
 
+### 2.1.2
+
+Updated dependencies
+
 ### 2.1.1
 
 Fixed bug #2 antlr-format produces output that isn't a fixed point, removes comments
@@ -48,7 +52,7 @@ BREAKING CHANGE:
 
 The package has been split into a [cli wrapper](https://www.npmjs.com/package/antlr-format-cli) and the actual formatter class. This avoids inclusion of otherwise unnecessary packages, when importing this package and works around a problem with esbuild when mixing ESM and CommonJS modules running in Node.js (for example using Jest with ts-jest).
 
-Additionally, the `GrammarFormatter` class now accepts a string with the grammar content and does the tokenisation on its own. This avoids that you have to run the ANTLRv4 lexer manually (or even care for it at all).
+Additionally, the `GrammarFormatter` class now accepts a string with the grammar content and does the tokenization on its own. This avoids that you have to run the ANTLRv4 lexer manually (or even care for it at all).
 
 ### 1.0.0
 
