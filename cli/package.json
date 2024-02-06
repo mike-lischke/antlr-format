@@ -1,6 +1,6 @@
 {
     "name": "antlr-format-cli",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "A cli wrapper for the antlr-format package",
     "author": "Mike Lischke",
     "files": [

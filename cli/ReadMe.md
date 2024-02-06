@@ -37,6 +37,10 @@ Run the tool with `--help` to have it print its supported parameters. For a deta
 
 ## Release Notes
 
+### 1.2.3
+
+Updated dependencies.
+
 ### 1.2.1 - 1.2.2
 
 Updated the tool with the latest `antlr-format` package.
