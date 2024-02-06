@@ -33,9 +33,9 @@
     "dependencies": {
         "@readme/better-ajv-errors": "1.6.0",
         "ajv": "8.12.0",
-        "antlr4ng": "2.0.4",
-        "commander": "11.1.0",
+        "antlr4ng": "2.0.10",
+        "commander": "12.0.0",
         "glob": "10.3.10",
-        "ts-json-schema-generator": "1.4.1"
+        "ts-json-schema-generator": "1.5.0"
     }
 }
