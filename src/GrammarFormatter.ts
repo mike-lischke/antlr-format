@@ -3,7 +3,7 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import { CharStreams, CommonTokenStream, Token } from "antlr4ng";
+import { CharStream, CommonTokenStream, Token } from "antlr4ng";
 
 import { ANTLRv4Lexer } from "./parser/ANTLRv4Lexer.js";
 import { IFormattingOptions } from "./types.js";
@@ -166,7 +166,7 @@ export class GrammarFormatter {
     public constructor(tokens: Token[], addOptionsAsComment?: boolean);
     public constructor(grammarOrTokens: string | Token[], private addOptionsAsComment = false) {
         if (typeof grammarOrTokens === "string") {
-            const lexer = new ANTLRv4Lexer(CharStreams.fromString(grammarOrTokens));
+            const lexer = new ANTLRv4Lexer(CharStream.fromString(grammarOrTokens));
             lexer.removeErrorListeners();
             const tokenStream = new CommonTokenStream(lexer);
             tokenStream.fill();
@@ -1237,7 +1237,7 @@ export class GrammarFormatter {
                             const rangeIndex = -(entry - PredefinedInsertMarker.Range);
                             const tokenStart = this.ranges[rangeIndex][0];
                             const tokenEnd = this.ranges[rangeIndex][1];
-                            result += this.tokens[0].inputStream!.getText(this.tokens[tokenStart].start,
+                            result += this.tokens[0].inputStream!.getTextFromRange(this.tokens[tokenStart].start,
                                 this.tokens[tokenEnd].stop);
                         }
                     } else {
@@ -1687,7 +1687,7 @@ export class GrammarFormatter {
      * @param stop The end index for the raw range.
      */
     private addRaw(start: InsertMarker, stop: InsertMarker): void {
-        const text = this.tokens[0].inputStream!.getText(this.tokens[start].start, this.tokens[stop].stop);
+        const text = this.tokens[0].inputStream!.getTextFromRange(this.tokens[start].start, this.tokens[stop].stop);
 
         if (text.indexOf("\n") >= 0) {
             const parts = text.split("\n");
@@ -2267,7 +2267,7 @@ export class GrammarFormatter {
                             const rangeIndex = -(entry - PredefinedInsertMarker.Range);
                             const startIndex = this.ranges[rangeIndex][0];
                             const endIndex = this.ranges[rangeIndex][1];
-                            text += this.tokens[0].inputStream!.getText(this.tokens[startIndex].start,
+                            text += this.tokens[0].inputStream!.getTextFromRange(this.tokens[startIndex].start,
                                 this.tokens[endIndex].stop);
                         } else if (this.isWhitespaceBlock(entry)) {
                             const whitespaceIndex = -(entry - PredefinedInsertMarker.WhitespaceBlock);

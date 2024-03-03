@@ -19,6 +19,10 @@ Read the [formatter documentation](doc/formatting.md) for further details and a 
 
 ## Release Notes
 
+### 2.1.4
+
+- Updated dependencies.
+
 ### 2.1.3
 
 - Stop including 3rd party libs in bundle.

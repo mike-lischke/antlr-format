@@ -5,7 +5,7 @@
 
 import * as fs from "fs";
 
-import { CharStreams, CommonTokenStream } from "antlr4ng";
+import { CharStream, CommonTokenStream } from "antlr4ng";
 
 import { positionToIndex, indexToPosition } from "./test-helpers.js";
 import { GrammarFormatter } from "../src/GrammarFormatter.js";
@@ -38,7 +38,7 @@ interface ITestRange {
 
 const formatGrammar = (grammar: string, options: IFormattingOptions, start: number,
     stop: number): [string, number, number] => {
-    const lexer = new ANTLRv4Lexer(CharStreams.fromString(grammar));
+    const lexer = new ANTLRv4Lexer(CharStream.fromString(grammar));
 
     lexer.removeErrorListeners();
     const tokenStream = new CommonTokenStream(lexer);
