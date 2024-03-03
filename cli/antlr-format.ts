@@ -11,7 +11,7 @@ import { glob } from "glob";
 
 import { OptionValues, program } from "commander";
 
-import { CharStreams, CommonTokenStream } from "antlr4ng";
+import { CharStream, CommonTokenStream } from "antlr4ng";
 
 import { ANTLRv4Lexer } from "../src/parser/ANTLRv4Lexer.js";
 import { IConfigurationDetails, processFormattingOptions } from "./process-options.js";
@@ -94,7 +94,7 @@ const formatGrammar = (grammarPath: string, config: IConfigurationDetails, start
     stop: number, addOptions = true): [string, number, number] => {
     const grammar = readFileSync(grammarPath, { encoding: "utf8" });
 
-    const lexer = new ANTLRv4Lexer(CharStreams.fromString(grammar));
+    const lexer = new ANTLRv4Lexer(CharStream.fromString(grammar));
 
     lexer.removeErrorListeners();
     const tokenStream = new CommonTokenStream(lexer);

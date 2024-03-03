@@ -1,6 +1,6 @@
 {
     "name": "antlr-format-cli",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "A cli wrapper for the antlr-format package",
     "author": "Mike Lischke",
     "files": [
@@ -33,7 +33,7 @@
     "dependencies": {
         "@readme/better-ajv-errors": "1.6.0",
         "ajv": "8.12.0",
-        "antlr4ng": "2.0.10",
+        "antlr4ng": "3.0.1",
         "commander": "12.0.0",
         "glob": "10.3.10",
         "ts-json-schema-generator": "1.5.0"
