@@ -37,6 +37,11 @@ Run the tool with `--help` to have it print its supported parameters. For a deta
 
 ## Release Notes
 
+### 1.2.5
+
+- Updated dependencies.
+- Fixed bug #6 - "antlr-format --version" always outputs "1.0.1" even though I am using version 1.2.4
+
 ### 1.2.4
 
 Updated dependencies.
