@@ -19,7 +19,7 @@ Read the [formatter documentation](doc/formatting.md) for further details and a 
 
 ## Release Notes
 
-### 2.1.4
+### 2.1.4 - 2.1.5
 
 - Updated dependencies.
 
