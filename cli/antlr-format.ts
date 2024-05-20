@@ -50,6 +50,15 @@ const matchBoolean = (value: string): boolean => {
     return lower === "true" || lower === "1" || lower === "on" || lower === "yes";
 };
 
+let packageJson: { version: string; };
+
+try {
+    packageJson = JSON.parse(readFileSync("./package.json", { encoding: "utf8" }));
+} catch (error) {
+    console.error("Error reading package.json file: " + error.message);
+    process.exit(1);
+}
+
 const start = performance.now();
 
 program
@@ -59,7 +68,7 @@ program
     .option("-c, --config <path>", "Path to a JSON file containing the formatting options to use.")
     .option("-s, --silent", "Suppress all output except errors.")
     .option("-v, --verbose", "Print additional information.")
-    .version("antlr-format 1.0.1")
+    .version(`antlr-format ${packageJson.version}`)
     .parse();
 
 const options = program.opts<IAppParameters>();

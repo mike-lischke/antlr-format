@@ -12,9 +12,10 @@
         "generate": "antlr4ng -Dlanguage=TypeScript -no-visitor -no-listener -Xexact-output-dir grammars/LexBasic.g4 grammars/ANTLRv4Lexer.g4 -o src/parser",
         "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --no-coverage",
         "lint": "eslint --ext .ts .",
-        "build": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outfile=dist/index.js --format=esm --packages=external",
+        "build": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outdir=dist --format=esm --packages=external",
         "build-watch": "npm run build -- --sourcemap --watch",
-        "format-grammar-repo": "antlr-format --config tests/config.json -a ../grammars-v4/**/*.g4"
+        "format-grammar-repo": "antlr-format --config tests/config.json -a ../grammars-v4/**/*.g4",
+        "format-version": "antlr-format --version"
     },
     "repository": {
         "type": "git",
@@ -30,7 +31,7 @@
     },
     "homepage": "https://github.com/mike-lischke/antlr-format",
     "dependencies": {
-        "antlr4ng": "^3.0.2"
+        "antlr4ng": "3.0.4"
     },
     "devDependencies": {
         "@types/jest": "29.5.12",
