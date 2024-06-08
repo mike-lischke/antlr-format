@@ -1,6 +1,6 @@
 {
     "name": "antlr-format-cli",
-    "version": "1.2.5",
+    "version": "1.2.8",
     "description": "A cli wrapper for the antlr-format package",
     "author": "Mike Lischke",
     "files": [
@@ -28,14 +28,15 @@
     "scripts": {
         "prepublishOnly": "npm run build",
         "build": "esbuild ./antlr-format.ts --main-fields=module,main --bundle --outfile=dist/antlr-format.cjs --platform=node --format=cjs --minify",
-        "generate-configuration-schema": "./node_modules/.bin/ts-json-schema-generator --path '../src/types.ts' --type 'IConfiguration' > config-schema.json"
+        "generate-configuration-schema": "./node_modules/.bin/ts-json-schema-generator --path '../src/types.ts' --type 'IConfiguration' > config-schema.json",
+        "format-version": "antlr-format --version"
     },
     "dependencies": {
         "@readme/better-ajv-errors": "1.6.0",
-        "ajv": "8.14.0",
+        "ajv": "8.16.0",
         "antlr4ng": "3.0.4",
         "commander": "12.1.0",
         "glob": "10.4.1",
-        "ts-json-schema-generator": "2.2.0"
+        "ts-json-schema-generator": "2.3.0"
     }
 }

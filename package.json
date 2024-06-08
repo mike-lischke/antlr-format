@@ -14,8 +14,7 @@
         "lint": "eslint --ext .ts .",
         "build": "tsc && esbuild ./src/index.ts --main-fields=module,main --bundle --outdir=dist --format=esm --packages=external",
         "build-watch": "npm run build -- --sourcemap --watch",
-        "format-grammar-repo": "antlr-format --config tests/config.json -a ../grammars-v4/**/*.g4",
-        "format-version": "antlr-format --version"
+        "format-grammar-repo": "antlr-format --config tests/config.json -a ../grammars-v4/**/*.g4"
     },
     "repository": {
         "type": "git",

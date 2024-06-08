@@ -5,9 +5,10 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  */
 
-import process from "process";
-import { readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 import { glob } from "glob";
+import process from "process";
+import path from "path";
 
 import { OptionValues, program } from "commander";
 
@@ -16,8 +17,8 @@ import { CharStream, CommonTokenStream } from "antlr4ng";
 import { ANTLRv4Lexer } from "../src/parser/ANTLRv4Lexer.js";
 import { IConfigurationDetails, processFormattingOptions } from "./process-options.js";
 
-import { IFormattingOptions } from "../src/types.js";
 import { GrammarFormatter } from "../src/GrammarFormatter.js";
+import { IFormattingOptions } from "../src/types.js";
 
 interface IAppParameters extends OptionValues {
     /** The path to a single source file or a glob pattern for multiple files. */
@@ -53,7 +54,15 @@ const matchBoolean = (value: string): boolean => {
 let packageJson: { version: string; };
 
 try {
-    packageJson = JSON.parse(readFileSync("./package.json", { encoding: "utf8" }));
+    // Read the package.json file to get the version number. This file is located in the parent directory, when bundled
+    // and in the same folder if not.
+    const scriptPath = import.meta.url ? import.meta.url.substring(7) : __filename;
+    let packagePath = path.join(path.dirname(scriptPath), "package.json");
+    if (!existsSync(packagePath)) {
+        packagePath = path.join(path.dirname(scriptPath), "../package.json");
+    }
+
+    packageJson = JSON.parse(readFileSync(packagePath, { encoding: "utf8" }));
 } catch (error) {
     console.error("Error reading package.json file: " + error.message);
     process.exit(1);

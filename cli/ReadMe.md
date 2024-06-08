@@ -37,6 +37,11 @@ Run the tool with `--help` to have it print its supported parameters. For a deta
 
 ## Release Notes
 
+### 1.2.6 - 1.2.8
+
+- Updated dependencies.
+- Fixed bug #8 - antlr-format uses deprecated packages (which also includes a file not found error for package.json).
+
 ### 1.2.5
 
 - Updated dependencies.
