@@ -150,11 +150,14 @@ if (!options.silent) {
 }
 
 fileList.forEach((grammarPath) => {
-    const [text, changed] = formatGrammar(grammarPath, details, 0, 1e10, options.addOptions);
+    let [text, changed] = formatGrammar(grammarPath, details, 0, 1e10, options.addOptions);
 
     if (changed) {
         if (options.verbose) {
             console.log("  formatted: " + grammarPath);
+        }
+        if (!text.endsWith('\n')) {
+            text += '\n';
         }
         writeFileSync(grammarPath, text);
     } else {
