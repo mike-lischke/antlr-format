@@ -85,8 +85,7 @@ const options = program.opts<IAppParameters>();
 const fileList = glob.sync(program.args, { nodir: true });
 if (fileList.length === 0) {
     console.error(`No grammar file found using this pattern: ${program.args.join(", ")}.\n`);
-
-    process.exit(0);
+    process.exit(0);  // No error, just no files to process.
 }
 fileList.sort();
 
@@ -109,7 +108,7 @@ const defaultOptions: IFormattingOptions = {
  * @returns The formatted grammar and the computed start and stop indices.
  */
 const formatGrammar = (grammarPath: string, config: IConfigurationDetails, start: number,
-    stop: number, addOptions = true): [string, number, number] => {
+    stop: number, addOptions = true): [string, boolean] => {
     const grammar = readFileSync(grammarPath, { encoding: "utf8" });
 
     const lexer = new ANTLRv4Lexer(CharStream.fromString(grammar));
@@ -135,8 +134,9 @@ const formatGrammar = (grammarPath: string, config: IConfigurationDetails, start
     }
 
     const formatter = new GrammarFormatter(tokens, addOptions);
-
-    return formatter.formatGrammar(options, start, stop);
+    const result = formatter.formatGrammar(options, start, stop);
+    const changed = result[0] !== grammar;
+    return [result[0], changed];
 };
 
 if (!options.silent) {
@@ -150,14 +150,18 @@ if (!options.silent) {
 }
 
 fileList.forEach((grammarPath) => {
-    if (options.verbose) {
-        console.log("  " + grammarPath);
-    }
-    const [text] = formatGrammar(grammarPath, details, 0, 1e10, options.addOptions);
+    const [text, changed] = formatGrammar(grammarPath, details, 0, 1e10, options.addOptions);
 
-    //const formattedGrammarPath = path.join(args[1], path.basename(grammarPath));
-    const formattedGrammarPath = grammarPath;
-    writeFileSync(formattedGrammarPath, text);
+    if (changed) {
+        if (options.verbose) {
+            console.log("  formatted: " + grammarPath);
+        }
+        writeFileSync(grammarPath, text);
+    } else {
+        if (options.verbose) {
+            console.log("  unchanged: " + grammarPath);
+        }
+    }
 });
 
 if (!options.silent) {
